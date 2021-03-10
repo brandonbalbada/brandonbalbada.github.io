@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+    <title>Brandon | Web Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icon2.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <script src="js/js.js"></script>
+</head>
+
+<body>
+    <div id="main" v-bind:class="{big: isNotClicked}">
+    <header id="home_header" v-bind:class="{big: isNotClicked, shrink: shrink}" >
+        <img id="logo" v-bind:class="{big: isNotClicked}" src="img/icon2.png"/>
+        <div v-bind:class="{big: isNotClicked}">
+            <h5>BRANDON BALBADA</h5>
+            <h5>FULL STACK WEB DEVELOPER</h5>
+        </div>
+        <img id="tap" v-on:click="scrollMe()" v-bind:class="{big: isNotClicked}" src="img/tap.png">
+    </header>
+    <section id="about" v-bind:class="{big: isNotClicked}" class="mainSection">
+        <div class="icon_title">
+            <img src="img/about.png" class="iconDefault"/>
+            <h5>ABOUT ME</h5>
+        </div>
+        <div class="content">
+            <div id="aboutMe">
+                <section>
+                    <h5>Name</h5>
+                    <h5>Brandon Balbada</h5>
+                </section>
+            </div>
+        </div>
+    </section>
+    <section id="languages" class="mainSection" v-bind:class="{big: isNotClicked}">
+        <div class="icon_title">
+            <img src="img/language.png" class="iconDefault"/>
+            <h5>PROGRAMMING LANGUAGE</h5>
+        </div>
+        <div class="content">
+            <div id="programmingLanguage">
+                <section class="programmingSection">
+                    <header class="programmingHeader">
+                        <img src="/img/front.png" class="iconDefault"/>
+                        FRONT END
+                    </header>  
+                    <div class="programmingList">
+
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            HTML
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            CSS
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            JavaScript
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            ReactJS
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            VueJS
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            AngularJS
+                        </div>
+                            
+                    </div> 
+                </section>
+
+                <section class="programmingSection">
+                    <header class="programmingHeader">
+                        <img src="/img/back.png" class="iconDefault"/>
+                        BACK END
+                    </header>  
+                    <div class="programmingList">
+                        <div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="/img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div>
+                        
+                    </div> 
+                </section>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="mainSection" v-bind:class="{big: isNotClicked}">
+        <div class="icon_title">
+            <img src="img/projects.png" class="iconDefault"/>
+            <h5>PROJECTS</h5>
+        </div>
+        <div class="content">
+            https://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbada
+        </div>
+    </section>
+
+    <div id="contactDetails">
+        <a href="https://github.com/brandonbalbada">
+            <span class="labelLink">GITHUB</span>
+            <img src="img/proglang/github-original.svg" alt="">
+        </a>
+        <a href="https://facebook.com/balbadabrandon">
+            <span class="labelLink">FACEBOOK</span>
+            <img src="img/proglang/facebook-plain.svg" />
+        </a>
+        <a href="https://twitter.com/balbadabrandon">
+            <span class="labelLink">TWITTER</span>
+            <img src="img/proglang/twitter-original.svg" alt="">
+        </a>
+        <a href="https://instagram.com/balbadabrandon">
+            <span class="labelLink">INSTAGRAM</span>
+            <img src="/img/proglang/ig.png" alt="">
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
