@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
           shrink: false
         },
         mounted() {
-            // window.scrollTo(0,0);
+            
             // window.addEventListener("scroll", this.scrollMe);
         },
         beforeDestroy() {
@@ -15,7 +15,8 @@ window.addEventListener('load', function () {
         },
         methods: {
             scrollMe: function(){
-           
+                window.scrollTo(0,0);
+                
                 setTimeout(() => {
                     this.isNotClicked = false;
                     this.shrink = true
