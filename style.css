@@ -305,12 +305,17 @@ div.programmingIcon img{
 }
 
 div#contactDetails{
+    display: flex;
     position: fixed;
     top: 5px;
     right: 10px;
     flex-flow: column nowrap;
     align-items: flex-end;
-    z-index: 4;
+    z-index: 5;
+}
+
+div#contactDetails.big{
+    display: none;
 }
 
 

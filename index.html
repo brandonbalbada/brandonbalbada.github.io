@@ -79,7 +79,7 @@
                         <img src="img/back.png" class="iconDefault"/>
                         BACK END
                     </header>  
-                    <div class="programmingList">
+                    <div class="programmingList" v-bind:class="{big: isNotClicked}">
                         <div class="programmingIcon">
                             <img src="img/front.png" class="iconDefault"/>
                             TRY LANG
@@ -102,7 +102,7 @@
             </div>
         </div>
     </section>
-    <section id="projects" class="mainSection" v-bind:class="{big: isNotClicked}">
+    <section id="projects" class="mainSection" ">
         <div class="icon_title">
             <img src="img/projects.png" class="iconDefault"/>
             <h5>PROJECTS</h5>
@@ -112,7 +112,7 @@
         </div>
     </section>
 
-    <div id="contactDetails">
+    <div id="contactDetails" v-bind:class="{big: isNotClicked}">
         <a href="https://github.com/brandonbalbada">
             <span class="labelLink">GITHUB</span>
             <img src="img/proglang/github-original.svg" alt="">
