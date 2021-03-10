@@ -13,7 +13,7 @@
     <header id="home_header" v-bind:class="{big: isNotClicked, shrink: shrink}" >
         <img id="logo" v-bind:class="{big: isNotClicked}" src="img/icon2.png"/>
         <div v-bind:class="{big: isNotClicked}">
-            <h2>BRANDON BALBADA</h2>
+            <h5>BRANDON BALBADA</h5>
             <h5>FULL STACK WEB DEVELOPER</h5>
         </div>
         <img id="tap" v-on:click="scrollMe()" v-bind:class="{big: isNotClicked}" src="img/tap.png">
@@ -21,13 +21,13 @@
     <section id="about" v-bind:class="{big: isNotClicked}" class="mainSection">
         <div class="icon_title">
             <img src="img/about.png" class="iconDefault"/>
-            <h3>ABOUT ME</h3>
+            <h5>ABOUT ME</h5>
         </div>
         <div class="content">
-            <div>
+            <div id="aboutMe">
                 <section>
-                    <h4>Name</h4>
-                    <h4>Brandon Balbada</h4>
+                    <h5>Name</h5>
+                    <h5>Brandon Balbada</h5>
                 </section>
             </div>
         </div>
@@ -35,16 +35,69 @@
     <section id="languages" class="mainSection" v-bind:class="{big: isNotClicked}">
         <div class="icon_title">
             <img src="img/language.png" class="iconDefault"/>
-            <h3>PROGRAMMING LANGUAGE</h3>
+            <h5>PROGRAMMING LANGUAGE</h5>
         </div>
         <div class="content">
             <div id="programmingLanguage">
-                <section>
-                    <img src="/img/front.png" class="iconDefault"/>
-                    <h5>Front End</h5>
+                <section class="programmingSection">
+                    <header class="programmingHeader">
+                        <img src="img/front.png" class="iconDefault"/>
+                        FRONT END
+                    </header>  
+                    <div class="programmingList">
+
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>HTML</span>
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>CSS</span>
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>ReactJS</span>
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>VueJS</span>
+                        </div>
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            <span>AngularJS</span>
+                        </div>
+                            
+                    </div> 
                 </section>
-                <section>
-                     PROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJECTSPROJEC
+
+                <section class="programmingSection">
+                    <header class="programmingHeader">
+                        <img src="img/back.png" class="iconDefault"/>
+                        BACK END
+                    </header>  
+                    <div class="programmingList">
+                        <div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div><div class="programmingIcon">
+                            <img src="img/front.png" class="iconDefault"/>
+                            TRY LANG
+                        </div>
+                        
+                    </div> 
                 </section>
             </div>
         </div>
@@ -52,12 +105,33 @@
     <section id="projects" class="mainSection" v-bind:class="{big: isNotClicked}">
         <div class="icon_title">
             <img src="img/projects.png" class="iconDefault"/>
-            <h3>PROJECTS</h3>
+            <h5>PROJECTS</h5>
         </div>
         <div class="content">
-           
+            https://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbadahttps://github.com/brandonbalbada
         </div>
     </section>
+
+    <div id="contactDetails">
+        <a href="https://github.com/brandonbalbada">
+            <span class="labelLink">GITHUB</span>
+            <img src="img/proglang/github-original.svg" alt="">
+        </a>
+        <a href="https://facebook.com/balbadabrandon">
+            <span class="labelLink">FACEBOOK</span>
+            <img src="img/proglang/facebook-plain.svg" />
+        </a>
+        <a href="https://twitter.com/balbadabrandon">
+            <span class="labelLink">TWITTER</span>
+            <img src="img/proglang/twitter-original.svg" alt="">
+        </a>
+        <a href="https://instagram.com/balbadabrandon">
+            <span class="labelLink">INSTAGRAM</span>
+            <img src="/img/proglang/ig.png" alt="">
+        </a>
+    </div>
+
 </div>
+
 </body>
 </html>

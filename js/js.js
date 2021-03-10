@@ -20,9 +20,8 @@ window.addEventListener('load', function () {
                     this.isNotClicked = false;
                     this.shrink = true
                 }
-                , 500);
+              , 500);
             
-               
             }
         },
       });
