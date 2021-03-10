@@ -310,7 +310,7 @@ div#contactDetails{
     right: 10px;
     flex-flow: column nowrap;
     align-items: flex-end;
-    z-index: 3;
+    z-index: 5;
 }
 
 
