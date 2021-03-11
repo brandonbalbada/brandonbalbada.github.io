@@ -333,7 +333,7 @@ div#contactDetails a{
 }
 
 div#contactDetails span.labelLink{
-    padding: 5px;
+    padding: 5px 10px;
     display: none;
     font-family: Quicksand;
     font-size: .75rem;
@@ -402,10 +402,21 @@ div#contactDetails.bottom a{
 div#contactDetails.bottom span.labelLink{
     display: flex;
     min-width: auto;
+    padding: 0;
 }
 
 div#contactDetails.bottom div#createdWith{
     display: flex;
+}
+
+div#createdWith {
+    padding-top: 10px;
+    align-items: center;
+}
+
+div#createdWith img{
+    cursor: default;
+
 }
 
 @media screen and (max-width: 500px){
