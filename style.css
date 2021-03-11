@@ -10,6 +10,7 @@
     /* border: 1px solid black; */
 }
 
+
 @keyframes header {
     0% {
         transform: translateY(-25vh);
@@ -89,7 +90,7 @@ h1, h2, h3, h4, h5{
 
 span{
     transition: 1s all ease-out;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-size: 1em;
 }
 
@@ -185,7 +186,8 @@ section.mainSection.big{
 }
 
 body section.mainSection,
-body header#home_header{
+body header#home_header,
+div#contactDetails.bottom{
     min-width: 250px;
     width: 75vw;
 }
@@ -224,7 +226,7 @@ body section.mainSection:nth-child(odd) img.iconDefault{
     border-right: 2px solid rgb(245, 245, 245);
 } */
 
-.icon_title {
+div.icon_title {
     z-index: 3;
     position: sticky;
     top: 100px;
@@ -235,11 +237,11 @@ body section.mainSection:nth-child(odd) img.iconDefault{
     /* margin-bottom: 5px; */
 }
 
-.icon_title h5{
+div.icon_title h5{
     font-weight: bolder;
 }
 
-.icon_title img{
+div.icon_title img{
     height: 45px;
     margin: 5px;
     width: auto;
@@ -271,6 +273,8 @@ section.programmingSection{
 }
 
 header.programmingHeader{
+    /* font-weight: bold; */
+    text-decoration: underline;
     font-family: Quicksand;
     align-items: center;
     position: sticky;
@@ -307,7 +311,7 @@ div.programmingIcon img{
 div#contactDetails{
     display: flex;
     position: fixed;
-    top: 5px;
+    bottom: 5px;
     right: 10px;
     flex-flow: column nowrap;
     align-items: flex-end;
@@ -318,6 +322,10 @@ div#contactDetails.big{
     display: none;
 }
 
+div#contactDetails h4{
+    padding: 10px 0;
+    display: none;
+}
 
 div#contactDetails a{
     align-items: center;
@@ -330,41 +338,82 @@ div#contactDetails span.labelLink{
     font-family: Quicksand;
     font-size: .75rem;
     font-weight: bolder;
+    min-width: 200px;
 }
 
 
-div#contactDetails a img{
+div#contactDetails img{
     margin: 5px;
     /* padding: 5px; */
     width: 25px;
     height: auto;
     cursor: pointer;
-    filter:saturate(0) contrast(1.5);
+    /* filter:saturate(0) contrast(1.5); */
 }
 
+div#contactDetails div#createdWith{
+    display: none;
+}
 
-div#contactDetails a:hover > img {
+/* 
+div#contactDetails a:hover > img,
+div#contactDetails a:active > img {
     filter: saturate(1);
-}
+} */
 
-div#contactDetails a:hover {
+div#contactDetails a:hover,
+div#contactDetails a:active {
     background-color: rgb(245, 245, 245);
-    border: 2px solid rgb(20,20,20);
+    border-bottom: 2px solid rgb(20,20,20);
 }
 
-div#contactDetails a:hover > span.labelLink
+div#contactDetails a:hover > span.labelLink,
+div#contactDetails a:active > span.labelLink
 {
+    display: flex;
+    font-weight: bold;
+
+}
+
+div#contactDetails.bottom{
+    position: relative;
+    align-items: center;
+    
+    margin: 20px 0;
+    border-top: 2px solid rgb(20,20,20);
+    padding: 20px 0;
+}
+
+div#contactDetails.bottom h4{
+    display: flex;
+    word-break: break-all;
+    font-weight: bolder;
+    max-width: 50vw;
+    min-width: 250px;
+}
+
+div#contactDetails.bottom a{
+    flex-flow: row-reverse nowrap;
+    max-width: 50vw;
+    min-width: 250px;
+    justify-content: space-between;
+}
+
+div#contactDetails.bottom span.labelLink{
+    display: flex;
+    min-width: auto;
+}
+
+div#contactDetails.bottom div#createdWith{
     display: flex;
 }
 
-
 @media screen and (max-width: 500px){
    
-    body {
-        /* background-color: red; */
-    }
+    /* body {
+        /* background-color: red;
+    } */
 
-    
     div.icon_title {
         justify-content: center;
     }
@@ -380,12 +429,17 @@ div#contactDetails a:hover > span.labelLink
     }
 
     div#contactDetails{
+        width: 100vw; 
         flex-flow: row nowrap;
-        width: 100vw;
         justify-content: center;
         right: 0;
+        bottom: 0;
         align-items: center;
+        background-color:  rgb(245, 245, 245);
     }
-    
+
+    div#contactDetails.bottom{
+        flex-flow: column nowrap;
+    }
 }
 
