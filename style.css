@@ -382,9 +382,10 @@ div#contactDetails a:active > span.labelLink
 div#contactDetails.bottom{
     position: relative;
     align-items: center;
-    
+    bottom: 0;
+    right: 0;
     margin: 20px 0;
-    border-top: 2px solid rgb(20,20,20);
+    border-top: 3px solid rgb(20,20,20);
     padding: 20px 0;
 }
 
