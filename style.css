@@ -274,7 +274,7 @@ section.programmingSection{
 
 header.programmingHeader{
     /* font-weight: bold; */
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-family: Quicksand;
     align-items: center;
     position: sticky;
@@ -407,11 +407,13 @@ div#contactDetails.bottom span.labelLink{
 
 div#contactDetails.bottom div#createdWith{
     display: flex;
+    width: 100%;
 }
 
 div#createdWith {
     padding-top: 10px;
     align-items: center;
+    justify-content: space-between;
 }
 
 div#createdWith img{
