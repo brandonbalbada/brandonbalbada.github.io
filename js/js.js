@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
           shrink: false,
           isAtBottom: false
         },
-        mounted() {
+        created() {
             window.addEventListener("scroll", this.scrollMe);
         },
         beforeDestroy() {
