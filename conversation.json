@@ -1,0 +1,101 @@
+{
+    "them1" : {
+        "mb1" : {
+                "title": "Introduction",
+                "subtitle": "*Today* 0:00 AM",
+                "type": "timedate"
+        },
+        "mb2" : {
+                "m": "Hi Brandon! How are you? Just asking if you’re available for a quick refresher about yourself.",
+                "type": "last"
+        }
+    },
+    "me1" : {
+        "mb1" : {
+            "m": "Sure. Hi I’m Brandon from *Cavite State University* currently staying in Cavite, Philippines. I’m 25 years old. I’m a *full-stack developer* but really prefer *frontend development*.",
+            "type": "first"
+        },
+        "mb2" : {
+            "m": "files/Me.jpg",
+            "type": "pic"
+        },
+        "mb3" : {
+            "m": "This is how I look, by the way.",
+            "type": "first"
+        },
+        "mb4" : {
+            "m": "[rofl]",
+            "type": "emoji"
+        }
+    },
+    "them2" : {
+        "mb1" : {
+            "title": "*Skills*",
+            "subtitle": "Frontend and Backend Skills",
+            "type": "timedate"
+        },
+        "mb2" : {
+            "m": "We’re actually looking for a developer on our company, and they’re looking for someone with experience. How’s your credentials?",
+            "type": "last"
+        }
+    },
+    "me2" : {
+        "mb1" : {
+            "m": "Here are my current skills.",
+            "type": "first"
+        },
+        "mb2" : {
+            "m": "• For *frontend* skills: \n Basic Front End Languages: - *HTML*, *CSS* and *JavaScript*",
+            "type": "first"
+        },
+        "mb3" : {
+            "m": "• CSS Libraries/Frameworks: \n *Bootstrap*, *SASS/SCSS*",
+            "type": "first"
+        },
+        "mb4" : {
+            "m": "• JavaScript frameworks: *jQuery*, *Typescript*, *Angular 16*, *ReactJS* and *Vue*.",
+            "type": "first"
+        }
+    },
+    "them3": {
+        "mb1" : {
+            "m": "How about your backend skills?",
+            "type": "last"
+        },
+        "mb2" : {
+            "m": "[think]",
+            "type": "emoji"
+        }
+    },
+    "me3" : {
+        "mb1" : {
+            "m": "For the *backend*:",
+            "type": "first"
+        },
+        "mb2" : {
+            "m": "• Server Side Languages:\n *PHP*, *Typescript*, *ASP.NET (C#)* and *nodeJS*",
+            "type": "first"
+        },
+        "mb3" : {
+            "m": "• Database: *mySQL*, *MS SQL* and *PostGre SQL*",
+            "type": "first"
+        },
+        "mb4" : {
+            "m": "I’m also familiar with *REST API* and *Content Management Services (CMS)* such as *WordPress* and *Shopify*.",
+            "type": "first"
+        },
+        "mb5" : {
+            "m": "...and a little bit of *Java*, *Python* and PHP frameworks: *Laravel*.",
+            "type": "first"
+        },
+        "mb6" : {
+            "m" : "I am also have high level knowledge about cloud software services such as *Azure DevOps* and *Amazon Web Services*.",
+             "type": "first"
+        },
+        "mb7" : {
+            "m" : "[behance] Brandon Balbada",
+            "type": "lastlink",
+            "link": "https://www.behance.net/brandonbalbada"
+        }
+    }
+}
