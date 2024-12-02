@@ -7,7 +7,6 @@ let time = new Date().toLocaleString('en-US', { hour: 'numeric', minute:"numeric
 const conversation = JSON.parse(request.responseText);
 const body = document.querySelector("#convo");
 
-
 const updateText = (text) => {
    let filterText = text;
 
@@ -37,32 +36,32 @@ const createHTMLElement = (sender,message) => {
 
     for (let m in message){
         const messageInsideElement = document.createElement("div");
+        let currentMessage = message[m];
         let messageDetails;
-        let messageTagAndContents = [["p", message[m].m]]; 
+        let messageTagAndContents = [["p", currentMessage.m]]; 
         let messageAdditionalClass = "";
 
-        if (message[m].type.indexOf("link") !== -1){
-            messageAdditionalClass = message[m].type.indexOf("first") !== -1 ? "first" : "last";
-            message[m].type = message[m].type.replace(messageAdditionalClass,"");
+        if (currentMessage.type.indexOf("link") !== -1){
+            messageAdditionalClass = currentMessage.type.indexOf("first") !== -1 ? "first" : "last";
+            currentMessage.type = currentMessage.type.replace(messageAdditionalClass,"");
         }
 
-        messageInsideElement.classList.add("message",message[m].type);
+        messageInsideElement.classList.add("message",currentMessage.type);
         messageAdditionalClass === "" || messageInsideElement.classList.add(messageAdditionalClass);
 
-        switch (message[m].type){
+        switch (currentMessage.type){
             case "timedate":
                 messageTagAndContents = [];
-                for (let contents in message[m]){
+                for (let contents in currentMessage){
                     if (contents != "type") {
-                        messageTagAndContents.push(["span",message[m][contents]]);
+                        messageTagAndContents.push(["span",currentMessage[contents]]);
                     }
                 }
             break;
             case "link":
             break;
             case "pic":
-                console.log(message[m].m);
-                // messageTagAndContents = [["img",message[m].m]];
+                messageTagAndContents = [["img",currentMessage.m]];
                 // MAKE THIS WORK TOMORROW
             break;
             case "first":
@@ -75,7 +74,11 @@ const createHTMLElement = (sender,message) => {
             let messageContents = messageTagAndContents[message][1];
         
             messageDetails = document.createElement(messageTag);
-            messageDetails.innerHTML = messageContents;     
+            if (currentMessage.type == "pic"){
+                messageDetails.setAttribute("src",messageContents);
+            } else {
+                messageDetails.innerHTML = messageContents;     
+            }
             messageInsideElement.appendChild(messageDetails);
         }
 
@@ -104,4 +107,17 @@ for (const sender in conversation){
     createHTMLElement(filterSender,messageContents);
 }
 
+let firstTrigger = true;
 
+const updateTime = () => {
+    const timeElement = document.getElementById("headerTime");
+    timeElement.innerHTML = new Date().toLocaleString('en-US', { hour: 'numeric', minute:"numeric", hour12: true });
+
+    let second = new Date().getSeconds() * 1000;
+    let secondUpdated = firstTrigger == true ? 60000 - second : 60000;
+
+    firstTrigger = false;
+    setTimeout(updateTime, secondUpdated);
+}
+
+updateTime();

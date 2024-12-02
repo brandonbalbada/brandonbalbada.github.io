@@ -22,6 +22,10 @@ $maxContentWidth: 1200px
     font-weight: 600
     src: url("../files/fonts/SFPRODISPLAYBOLD.OTF")
 
+@mixin div-center-spacebetween
+    justify-content: space-between
+    align-items: center
+
 *
     box-sizing: border-box
 
@@ -61,10 +65,41 @@ section
             border-radius: 85px
             overflow: hidden
             #screen            
+                flex-flow: column nowrap
                 overflow: hidden
                 border-radius: 80px
                 border: 10px solid $black
+                
                 #header
+                    padding: 25px 40px
+                    flex-flow: column
+                    #floatingHeader
+                        @include div-center-spacebetween
+                        width: 100%
+                        font-weight: 600
+
+                        #headerTime, 
+                        #batteryIndicator 
+                            width: 65px
+
+                        #headerTime
+                            font-size: 1em
+                            line-height: 1em                    
+
+                        #dynamicHeader
+                            height: 40px
+                            width: 150px
+                            background-color: $black
+                            border-radius: 30px
+                        
+                        #batteryIndicator
+                            justify-content: end
+
+                    #messageContact 
+                        @include div-center-spacebetween
+                        padding: 25px 0 0 0
+                        #contact
+                            flex-flow: column nowrap
                 #convo   
                     overflow-y: scroll
                     padding: 0 35px
@@ -94,10 +129,17 @@ section
 
                             &:last-child
                                 margin-bottom: 0
-                        
+
+                            // Types
+                            &.pic 
+                                padding: 2px 
+                                img
+                                    width: 100%
+                                    border-radius: 19px
+
                         p 
                             letter-spacing: 1px 
-
+                        
                         &.warning
                             align-items: end
                             div 

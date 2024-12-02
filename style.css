@@ -58,9 +58,45 @@ section .row #phone {
   overflow: hidden;
 }
 section .row #phone #screen {
+  flex-flow: column nowrap;
   overflow: hidden;
   border-radius: 80px;
   border: 10px solid #000000;
+}
+section .row #phone #screen #header {
+  padding: 25px 40px;
+  flex-flow: column;
+}
+section .row #phone #screen #header #floatingHeader {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+}
+section .row #phone #screen #header #floatingHeader #headerTime,
+section .row #phone #screen #header #floatingHeader #batteryIndicator {
+  width: 65px;
+}
+section .row #phone #screen #header #floatingHeader #headerTime {
+  font-size: 1em;
+  line-height: 1em;
+}
+section .row #phone #screen #header #floatingHeader #dynamicHeader {
+  height: 40px;
+  width: 150px;
+  background-color: #000000;
+  border-radius: 30px;
+}
+section .row #phone #screen #header #floatingHeader #batteryIndicator {
+  justify-content: end;
+}
+section .row #phone #screen #header #messageContact {
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0 0 0;
+}
+section .row #phone #screen #header #messageContact #contact {
+  flex-flow: column nowrap;
 }
 section .row #phone #screen #convo {
   overflow-y: scroll;
@@ -93,6 +129,13 @@ section .row #phone #screen #convo .messageGroup .message {
 }
 section .row #phone #screen #convo .messageGroup .message:last-child {
   margin-bottom: 0;
+}
+section .row #phone #screen #convo .messageGroup .message.pic {
+  padding: 2px;
+}
+section .row #phone #screen #convo .messageGroup .message.pic img {
+  width: 100%;
+  border-radius: 19px;
 }
 section .row #phone #screen #convo .messageGroup p {
   letter-spacing: 1px;
