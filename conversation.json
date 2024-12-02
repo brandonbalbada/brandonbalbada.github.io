@@ -1,8 +1,8 @@
 {
     "them1" : {
         "mb1" : {
-                "title": "Introduction",
-                "subtitle": "*Today* 0:00 AM",
+                "title": "*Introduction*",
+                "subtitle": "*Today* =time=",
                 "type": "timedate"
         },
         "mb2" : {
@@ -45,16 +45,16 @@
             "type": "first"
         },
         "mb2" : {
-            "m": "• For *frontend* skills: \n Basic Front End Languages: - *HTML*, *CSS* and *JavaScript*",
+            "m": "• For *frontend* skills:\nBasic Front End Languages: \n- *HTML*, *CSS* and *JavaScript*",
             "type": "first"
         },
         "mb3" : {
-            "m": "• CSS Libraries/Frameworks: \n *Bootstrap*, *SASS/SCSS*",
+            "m": "• CSS Libraries/Frameworks:\n*Bootstrap*, *SASS/SCSS*",
             "type": "first"
         },
         "mb4" : {
-            "m": "• JavaScript frameworks: *jQuery*, *Typescript*, *Angular 16*, *ReactJS* and *Vue*.",
-            "type": "first"
+            "m": "• JavaScript frameworks:\n*jQuery*, *Typescript*, *Angular 16*, *ReactJS* and *Vue*.",
+            "type": "last"
         }
     },
     "them3": {
@@ -73,7 +73,7 @@
             "type": "first"
         },
         "mb2" : {
-            "m": "• Server Side Languages:\n *PHP*, *Typescript*, *ASP.NET (C#)* and *nodeJS*",
+            "m": "• Server Side Languages:\n*PHP*, *Typescript*, *ASP.NET (C#)* and *nodeJS*",
             "type": "first"
         },
         "mb3" : {
@@ -93,7 +93,7 @@
              "type": "first"
         },
         "mb7" : {
-            "m" : "[behance] Brandon Balbada",
+            "m" : "[linkedin] Brandon Balbada",
             "type": "lastlink",
             "link": "https://www.behance.net/brandonbalbada"
         }

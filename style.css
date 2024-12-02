@@ -1,3 +1,140 @@
-html {
+@font-face {
+  font-family: "SF Pro";
+  font-weight: 300;
+  src: url("../files/fonts/SFPRODISPLAYTHIN.TTF");
+}
+@font-face {
+  font-family: "SF Pro";
+  font-weight: 400;
+  src: url("../files/fonts/SFPRODISPLAYREGULAR.OTF");
+}
+@font-face {
+  font-family: "SF Pro";
+  font-weight: 600;
+  src: url("../files/fonts/SFPRODISPLAYBOLD.OTF");
+}
+* {
+  box-sizing: border-box;
+}
+
+div {
+  display: flex;
+}
+
+body {
+  font-family: SF Pro;
+  background-color: #F7F7F7;
   margin: 0;
+  font-size: 14px;
+  line-height: 1.28em;
+  font-family: SF Pro;
+}
+
+p {
+  white-space: break-spaces;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  min-height: 100svh;
+}
+section .row {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  padding: 60px 40px;
+}
+section .row > div {
+  width: 100%;
+}
+section .row #phone {
+  justify-content: center;
+  border: 6px solid #ABA9A4;
+  max-height: calc(100vh - 120px);
+  max-width: 90%;
+  border-radius: 85px;
+  overflow: hidden;
+}
+section .row #phone #screen {
+  overflow: hidden;
+  border-radius: 80px;
+  border: 10px solid #000000;
+}
+section .row #phone #screen #convo {
+  overflow-y: scroll;
+  padding: 0 35px;
+  display: grid;
+  grid-auto-flow: row;
+}
+section .row #phone #screen #convo noscript {
+  display: flex;
+  justify-content: right;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+section .row #phone #screen #convo .messageGroup {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+section .row #phone #screen #convo .messageGroup:last-child {
+  margin-bottom: 0;
+}
+section .row #phone #screen #convo .messageGroup .message {
+  margin-bottom: 5px;
+  max-width: 82%;
+  padding: 10px 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 19px;
+}
+section .row #phone #screen #convo .messageGroup .message:last-child {
+  margin-bottom: 0;
+}
+section .row #phone #screen #convo .messageGroup p {
+  letter-spacing: 1px;
+}
+section .row #phone #screen #convo .messageGroup.warning {
+  align-items: end;
+}
+section .row #phone #screen #convo .messageGroup.warning div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+section .row #phone #screen #convo .messageGroup.warning span {
+  color: #FF3C2F;
+}
+section .row #phone #screen #convo .messageGroup.warning img {
+  height: 20px;
+}
+section .row #phone #screen #convo .messageGroup.me .message {
+  background-color: #EEEEEE;
+}
+section .row #phone #screen #convo .messageGroup.them {
+  justify-content: end;
+}
+section .row #phone #screen #convo .messageGroup.them .message {
+  align-self: end;
+}
+section .row #phone #screen #convo .messageGroup.them .message.first, section .row #phone #screen #convo .messageGroup.them .message.last, section .row #phone #screen #convo .messageGroup.them .message:not(.emoji) {
+  background-color: #007AFF;
+}
+section .row #phone #screen #convo .messageGroup.them .message.timedate {
+  background-color: unset;
+  width: 100%;
+  max-width: 100%;
+  justify-self: unset;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #929AAB;
+  letter-spacing: 0.5px;
+}
+section .row #phone #screen #convo .messageGroup.them .message p {
+  font-weight: 300;
+  color: #F7F7F7;
 }/*# sourceMappingURL=style.css.map */

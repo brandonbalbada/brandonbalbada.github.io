@@ -1,2 +1,139 @@
-html 
+$them: #007AFF
+$link: #4CD865
+$me: #EEEEEE
+$warning: #FF3C2F
+$grey: #929AAB
+$white: #F7F7F7
+$black: #000000
+$maxContentWidth: 1200px
+
+@font-face 
+    font-family: "SF Pro"
+    font-weight: 300
+    src: url("../files/fonts/SFPRODISPLAYTHIN.TTF")
+
+@font-face 
+    font-family: "SF Pro"
+    font-weight: 400
+    src: url("../files/fonts/SFPRODISPLAYREGULAR.OTF")
+
+@font-face 
+    font-family: "SF Pro"
+    font-weight: 600
+    src: url("../files/fonts/SFPRODISPLAYBOLD.OTF")
+
+*
+    box-sizing: border-box
+
+div 
+    display: flex
+
+body 
+    font-family: SF Pro
+    background-color: $white
     margin: 0
+    font-size: 14px
+    line-height: 1.28em
+    font-family: SF Pro
+
+p
+    white-space: break-spaces
+    margin: 0
+
+section
+    display: flex
+    justify-content: center
+    min-height: 100svh
+    .row     
+        display: flex
+        max-width: $maxContentWidth
+        width: 100%    
+        padding: 60px 40px
+
+        & > div 
+            width: 100%
+
+        #phone
+            justify-content: center             
+            border: 6px solid #ABA9A4
+            max-height: calc(100vh - 120px)
+            max-width: 90%
+            border-radius: 85px
+            overflow: hidden
+            #screen            
+                overflow: hidden
+                border-radius: 80px
+                border: 10px solid $black
+                #header
+                #convo   
+                    overflow-y: scroll
+                    padding: 0 35px
+                    display: grid
+                    grid-auto-flow: row
+
+                    noscript
+                        display: flex
+                        justify-content: right
+                        width: fit-content
+
+                    .messageGroup
+                        display: flex
+                        flex-flow: column nowrap
+                        margin-bottom: 15px 
+                        font-weight: 300
+
+                        &:last-child
+                            margin-bottom: 0
+                        
+                        .message      
+                            margin-bottom: 5px  
+                            max-width: 82% 
+                            padding: 10px 15px
+                            width: fit-content
+                            border-radius: 19px
+
+                            &:last-child
+                                margin-bottom: 0
+                        
+                        p 
+                            letter-spacing: 1px 
+
+                        &.warning
+                            align-items: end
+                            div 
+                                display: flex
+                                flex-flow: row nowrap
+                                align-items: center
+                            span
+                                color: $warning
+                            img
+                                height: 20px
+       
+                        &.me                        
+                            .message               
+                                background-color: $me
+                            
+                        &.them
+                            justify-content: end
+                            .message
+                                align-self: end
+                                
+                                &.first,
+                                &.last,
+                                &:not(.emoji)
+                                    background-color: $them
+                                &.timedate    
+                                    background-color: unset
+                                    width: 100%
+                                    max-width: 100%
+                                    justify-self: unset
+                                    flex-flow: column nowrap
+                                    align-items: center
+                                    margin-bottom: 10px 
+                                    color: $grey 
+                                    letter-spacing: .5px
+                                p
+                                    font-weight: 300
+                                    color: $white
+                           
+                                
