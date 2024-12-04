@@ -7,7 +7,7 @@ let time = new Date().toLocaleString('en-US', { hour: 'numeric', minute:"numeric
 const conversation = JSON.parse(request.responseText);
 const body = document.querySelector("#convo");
 
-const updateText = (text) => {
+const updateText = (text, type = "") => {
    let filterText = text;
 
    // update to bold
@@ -19,6 +19,15 @@ const updateText = (text) => {
         }
    }
 
+   let emojiFilter = text.match(/\[(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})\]/g);
+   if (emojiFilter){ 
+        for (const word in emojiFilter){
+            const filetype = type == "pic" ? ["","jpg"] : ["icons","png"];
+            let updatedWord = `files/${filetype[0]}/${emojiFilter[word].replaceAll(/\[|\]/g,"")}.${filetype[1]}`;
+            filterText = filterText.replaceAll(emojiFilter[word],updatedWord);
+        }
+   }
+   
    let timeFilter = text.match(/\=(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})\=/g);
    if (timeFilter){ 
         for (const word in timeFilter){
@@ -38,7 +47,8 @@ const createHTMLElement = (sender,message) => {
         const messageInsideElement = document.createElement("div");
         let currentMessage = message[m];
         let messageDetails;
-        let messageTagAndContents = [["p", currentMessage.m]]; 
+        
+        let messageTagAndContents = [["p",currentMessage.m]]; 
         let messageAdditionalClass = "";
 
         if (currentMessage.type.indexOf("link") !== -1){
@@ -61,8 +71,13 @@ const createHTMLElement = (sender,message) => {
             case "link":
             break;
             case "pic":
-                messageTagAndContents = [["img",currentMessage.m]];
-                // MAKE THIS WORK TOMORROW
+            case "emoji":
+                messageTagAndContents = [];
+                let splitArray = currentMessage.m.split(" ");
+                
+                for (let contents in splitArray){
+                    messageTagAndContents.push(["img",splitArray[contents]]);
+                }
             break;
             case "first":
             case "last":
@@ -74,19 +89,20 @@ const createHTMLElement = (sender,message) => {
             let messageContents = messageTagAndContents[message][1];
         
             messageDetails = document.createElement(messageTag);
-            if (currentMessage.type == "pic"){
+            if (currentMessage.type == "pic" || currentMessage.type == "emoji"){
                 messageDetails.setAttribute("src",messageContents);
+                messageDetails.classList.add(currentMessage.type);
             } else {
+                //  && console.log(messageContents);
                 messageDetails.innerHTML = messageContents;     
             }
             messageInsideElement.appendChild(messageDetails);
         }
-
         messageElement.appendChild(messageInsideElement);
+        // clean regex for strong variable
+        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replace("<strong>","").replace("</strong>","").toLowerCase());
     }
-    
     body.appendChild(messageElement);
-
 }
 
 // Get the conversation
@@ -97,9 +113,8 @@ for (const sender in conversation){
     for (const messageBlock in convo){
         const message = convo[messageBlock];
         for (let messageLines in message){
-            // console.log(messageLines);
             if (messageLines != "type" && messageLines != "link"){
-                message[messageLines] = updateText(message[messageLines]);
+                message[messageLines] = updateText(message[messageLines],message["type"]);
             } 
         }
         messageContents.push(message);

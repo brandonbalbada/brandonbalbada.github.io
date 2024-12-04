@@ -39,15 +39,18 @@ body
     font-size: 14px
     line-height: 1.28em
     font-family: SF Pro
-
+    max-height: 100svh
+    overflow: hidden
 p
-    white-space: break-spaces
+    white-space: pre-line
     margin: 0
 
 section
     display: flex
     justify-content: center
-    min-height: 100svh
+    min-height: 100svh    
+    max-height: 100svh    
+    height: max-content
     .row     
         display: flex
         max-width: $maxContentWidth
@@ -71,8 +74,10 @@ section
                 border: 10px solid $black
                 
                 #header
-                    padding: 25px 40px
+                    padding: 25px 40px 15px
                     flex-flow: column
+                    box-shadow: 0px -1px 12px rgba(0,0,0,.1)
+                    
                     #floatingHeader
                         @include div-center-spacebetween
                         width: 100%
@@ -102,10 +107,9 @@ section
                             flex-flow: column nowrap
                 #convo   
                     overflow-y: scroll
-                    padding: 0 35px
+                    padding: 10px 35px 50px
                     display: grid
-                    grid-auto-flow: row
-
+                    grid-auto-flow: row    
                     noscript
                         display: flex
                         justify-content: right
@@ -125,7 +129,7 @@ section
                             max-width: 82% 
                             padding: 10px 15px
                             width: fit-content
-                            border-radius: 19px
+                            border-radius: 22px
 
                             &:last-child
                                 margin-bottom: 0
@@ -136,6 +140,10 @@ section
                                 img
                                     width: 100%
                                     border-radius: 19px
+                            
+                            &.emoji
+                                padding: 0
+                                background-color: none
 
                         p 
                             letter-spacing: 1px 
@@ -152,7 +160,7 @@ section
                                 height: 20px
        
                         &.me                        
-                            .message               
+                            .message:not(.emoji)               
                                 background-color: $me
                             
                         &.them
@@ -178,4 +186,7 @@ section
                                     font-weight: 300
                                     color: $white
                            
-                                
+@media (prefers-color-scheme: dark) 
+    body::before
+        content: "darkmode"
+        

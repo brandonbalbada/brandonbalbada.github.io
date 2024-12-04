@@ -16,7 +16,7 @@
             "type": "first"
         },
         "mb2" : {
-            "m": "files/Me.jpg",
+            "m": "[Me]",
             "type": "pic"
         },
         "mb3" : {
@@ -24,7 +24,7 @@
             "type": "first"
         },
         "mb4" : {
-            "m": "[rofl]",
+            "m": "[rofl] [rofl]",
             "type": "emoji"
         }
     },

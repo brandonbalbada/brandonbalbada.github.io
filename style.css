@@ -28,10 +28,12 @@ body {
   font-size: 14px;
   line-height: 1.28em;
   font-family: SF Pro;
+  max-height: 100svh;
+  overflow: hidden;
 }
 
 p {
-  white-space: break-spaces;
+  white-space: pre-line;
   margin: 0;
 }
 
@@ -39,6 +41,9 @@ section {
   display: flex;
   justify-content: center;
   min-height: 100svh;
+  max-height: 100svh;
+  height: -moz-max-content;
+  height: max-content;
 }
 section .row {
   display: flex;
@@ -64,8 +69,9 @@ section .row #phone #screen {
   border: 10px solid #000000;
 }
 section .row #phone #screen #header {
-  padding: 25px 40px;
+  padding: 25px 40px 15px;
   flex-flow: column;
+  box-shadow: 0px -1px 12px rgba(0, 0, 0, 0.1);
 }
 section .row #phone #screen #header #floatingHeader {
   justify-content: space-between;
@@ -100,7 +106,7 @@ section .row #phone #screen #header #messageContact #contact {
 }
 section .row #phone #screen #convo {
   overflow-y: scroll;
-  padding: 0 35px;
+  padding: 10px 35px 50px;
   display: grid;
   grid-auto-flow: row;
 }
@@ -125,7 +131,7 @@ section .row #phone #screen #convo .messageGroup .message {
   padding: 10px 15px;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 19px;
+  border-radius: 22px;
 }
 section .row #phone #screen #convo .messageGroup .message:last-child {
   margin-bottom: 0;
@@ -136,6 +142,10 @@ section .row #phone #screen #convo .messageGroup .message.pic {
 section .row #phone #screen #convo .messageGroup .message.pic img {
   width: 100%;
   border-radius: 19px;
+}
+section .row #phone #screen #convo .messageGroup .message.emoji {
+  padding: 0;
+  background-color: none;
 }
 section .row #phone #screen #convo .messageGroup p {
   letter-spacing: 1px;
@@ -154,7 +164,7 @@ section .row #phone #screen #convo .messageGroup.warning span {
 section .row #phone #screen #convo .messageGroup.warning img {
   height: 20px;
 }
-section .row #phone #screen #convo .messageGroup.me .message {
+section .row #phone #screen #convo .messageGroup.me .message:not(.emoji) {
   background-color: #EEEEEE;
 }
 section .row #phone #screen #convo .messageGroup.them {
@@ -180,4 +190,10 @@ section .row #phone #screen #convo .messageGroup.them .message.timedate {
 section .row #phone #screen #convo .messageGroup.them .message p {
   font-weight: 300;
   color: #F7F7F7;
+}
+
+@media (prefers-color-scheme: dark) {
+  body::before {
+    content: "darkmode";
+  }
 }/*# sourceMappingURL=style.css.map */
