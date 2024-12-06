@@ -138,7 +138,7 @@
         "type": "last"
       },
       "2": {
-        "m": "files/icons/work.png",
+        "m": "[work]",
         "type": "emoji"
       },
       "3": {
@@ -161,7 +161,7 @@
             "type": "first"
           },
           "3": {
-            "m": "files//GoCrayons.jpg",
+            "m": "files/GoCrayons.jpg",
             "type": "pic"
           },
           "4": {

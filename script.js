@@ -38,8 +38,8 @@ const updateText = (text, type = "") => {
    if (emojiFilter){ 
     console.log(emojiFilter);
         for (const word in emojiFilter){
-            const filetype = type == "pic" ? ["","jpg"] : ["icons","png"];
-            let updatedWord = `files/${filetype[0]}/${emojiFilter[word].replaceAll(/\[|\]/g,"")}.${filetype[1]}`;
+            const filetype = type == "pic" ? ["","jpg"] : ["icons/","png"];
+            let updatedWord = `files/${filetype[0]}${emojiFilter[word].replaceAll(/\[|\]/g,"")}.${filetype[1]}`;
             filterText = filterText.replaceAll(emojiFilter[word],updatedWord);
         }
    }
@@ -88,7 +88,7 @@ const createHTMLElement = (sender,message) => {
                 
                 if (iconFilter){
                      for (const word in iconFilter){
-                         let updatedWord = `<img src=${iconFilter[word].replaceAll("#","")}/>`;
+                         let updatedWord = `<img src="${iconFilter[word].replaceAll("#","")}/>`;
                          currentMessage.m = currentMessage.m.replaceAll(iconFilter[word],updatedWord);
                          messageTagAndContents.push(["a",currentMessage.m]);
                      }
@@ -186,8 +186,6 @@ function add(element){
     
     if (currentConvoGroupName == "") {
         currentConvoGroupName = convoClassName + count;
-        console.log(finalConvo.length);
-        console.log(finalConvo);
     }
 
     switch (convoTypeValue){
