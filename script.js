@@ -7,6 +7,21 @@ let time = new Date().toLocaleString('en-US', { hour: 'numeric', minute:"numeric
 const conversation = JSON.parse(request.responseText);
 const body = document.querySelector("#convo");
 
+let finalConvo = [];
+let currentConvoGroup = [];
+let currentConvoGroupName = "";
+let count = 1;
+
+const convoCurrent = document.getElementById("currentConvoCreated");
+const convoFinal = document.getElementById("convoCreated");
+const convoType = document.getElementById("convoType");
+const convoInputText = document.getElementById("convoInput");
+const convoInputText2 = document.getElementById("convoInputAnother");
+
+const convertToObject = (arr) => Object.assign({},arr);
+const outputObject = (obj) => JSON.stringify(convertToObject(obj), null, 2);
+
+
 const updateText = (text, type = "") => {
    let filterText = text;
 
@@ -21,6 +36,7 @@ const updateText = (text, type = "") => {
 
    let emojiFilter = text.match(/\[(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})\]/g);
    if (emojiFilter){ 
+    console.log(emojiFilter);
         for (const word in emojiFilter){
             const filetype = type == "pic" ? ["","jpg"] : ["icons","png"];
             let updatedWord = `files/${filetype[0]}/${emojiFilter[word].replaceAll(/\[|\]/g,"")}.${filetype[1]}`;
@@ -46,9 +62,9 @@ const createHTMLElement = (sender,message) => {
     for (let m in message){
         const messageInsideElement = document.createElement("div");
         let currentMessage = message[m];
+        let messageTagAndContents = [];
         let messageDetails;
         
-        let messageTagAndContents = [["p",currentMessage.m]]; 
         let messageAdditionalClass = "";
 
         if (currentMessage.type.indexOf("link") !== -1){
@@ -61,7 +77,6 @@ const createHTMLElement = (sender,message) => {
 
         switch (currentMessage.type){
             case "timedate":
-                messageTagAndContents = [];
                 for (let contents in currentMessage){
                     if (contents != "type") {
                         messageTagAndContents.push(["span",currentMessage[contents]]);
@@ -69,10 +84,19 @@ const createHTMLElement = (sender,message) => {
                 }
             break;
             case "link":
+                let iconFilter = currentMessage.m.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
+                
+                if (iconFilter){
+                     for (const word in iconFilter){
+                         let updatedWord = `<img src=${iconFilter[word].replaceAll("#","")}/>`;
+                         currentMessage.m = currentMessage.m.replaceAll(iconFilter[word],updatedWord);
+                         messageTagAndContents.push(["a",currentMessage.m]);
+                     }
+                }
+             
             break;
             case "pic":
             case "emoji":
-                messageTagAndContents = [];
                 let splitArray = currentMessage.m.split(" ");
                 
                 for (let contents in splitArray){
@@ -81,6 +105,8 @@ const createHTMLElement = (sender,message) => {
             break;
             case "first":
             case "last":
+            default:
+                messageTagAndContents = [["p",currentMessage.m]]; 
             break;
         }
 
@@ -93,34 +119,44 @@ const createHTMLElement = (sender,message) => {
                 messageDetails.setAttribute("src",messageContents);
                 messageDetails.classList.add(currentMessage.type);
             } else {
+                if (currentMessage.type == "link"){
+                    messageDetails.setAttribute("href",currentMessage.link);
+                    messageDetails.setAttribute("target","_blank");
+                }
                 //  && console.log(messageContents);
                 messageDetails.innerHTML = messageContents;     
             }
             messageInsideElement.appendChild(messageDetails);
         }
         messageElement.appendChild(messageInsideElement);
-        // clean regex for strong variable
-        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replace("<strong>","").replace("</strong>","").toLowerCase());
+        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").toLowerCase());
     }
     body.appendChild(messageElement);
+    // create a condition inside first and last for emojis
 }
 
-// Get the conversation
-for (const sender in conversation){
-    const convo = conversation[sender];
-    const filterSender = sender.replace(/\d/g,"");
-    let messageContents = [];
-    for (const messageBlock in convo){
-        const message = convo[messageBlock];
-        for (let messageLines in message){
-            if (messageLines != "type" && messageLines != "link"){
-                message[messageLines] = updateText(message[messageLines],message["type"]);
-            } 
+const putHTMLElements = (conversation) => {
+    // Get the conversation
+    for (const sender in conversation){
+        const convo = conversation[sender];
+        const filterSender = sender.replace(/\d/g,"");
+        let messageContents = [];
+        for (const messageBlock in convo){
+            const message = convo[messageBlock];
+            for (let messageLines in message){
+                if (messageLines != "type" && messageLines != "link"){
+                    message[messageLines] = updateText(message[messageLines],message["type"]);
+                } 
+            }
+            messageContents.push(message);
         }
-        messageContents.push(message);
+        createHTMLElement(filterSender,messageContents);
+        console.log(count);
+        count++;
     }
-    createHTMLElement(filterSender,messageContents);
 }
+
+putHTMLElements(conversation);
 
 let firstTrigger = true;
 
@@ -136,3 +172,77 @@ const updateTime = () => {
 }
 
 updateTime();
+
+// CONVO GENERATOR
+function add(element){
+    let convoInputTextValue = convoInputText.value;
+    let convoInputTextValue2 = convoInputText2.value;
+    let convoTypeValue = convoType.value;
+    let convoClassName = element.currentTarget.classList.contains("me") ? "me" : "them";
+    
+    document.querySelectorAll(".add").forEach((element) => !(element.classList.contains(convoClassName)) ? element.setAttribute("disabled","true") : "" );
+
+    let currentConvoGroupDetails = [];
+    
+    if (currentConvoGroupName == "") {
+        currentConvoGroupName = convoClassName + count;
+        console.log(finalConvo.length);
+        console.log(finalConvo);
+    }
+
+    switch (convoTypeValue){
+        case "timedate":       
+            convoInputTextValue != null && (currentConvoGroupDetails["title"] = convoInputTextValue);
+            currentConvoGroupDetails["subtitle"] = convoInputTextValue2;
+        break;
+        case "link":
+            currentConvoGroupDetails["m"] = convoInputTextValue;
+            currentConvoGroupDetails["link"] = convoInputTextValue2;
+        break;
+        case "pic":
+        case "emoji":
+        case "first":
+        case "last":
+        default:    
+            currentConvoGroupDetails["m"] = convoInputTextValue;
+        break;
+    }
+
+    currentConvoGroupDetails["type"] = convoTypeValue;
+    currentConvoGroup.push(convertToObject(currentConvoGroupDetails));
+    // reset value
+    convoCurrent.innerHTML = outputObject(currentConvoGroup);
+    convoInputText.value = "";
+    convoInputText2.value = "";
+    convoType.value = "first";
+}
+
+function end(element){
+    if (element.currentTarget.classList.contains("end")){   
+        finalConvo[currentConvoGroupName] = convertToObject(currentConvoGroup);
+        convoFinal.innerHTML = outputObject(finalConvo);
+        count++;
+    }
+
+    document.querySelectorAll(".add").forEach((element) => element.removeAttribute("disabled"));
+    convoCurrent.innerHTML = "";
+    currentConvoGroupName = "";
+    currentConvoGroup = [];
+}
+
+document.querySelectorAll(".add").forEach((element) => element.addEventListener('click',add) );
+document.querySelector(".end").addEventListener('click',end);
+document.querySelector(".reset").addEventListener('click',end);
+
+const copy = () => {
+  navigator.clipboard.writeText(outputObject(finalConvo));
+  alert("Copied");
+}
+document.querySelector("#copy").addEventListener("click",copy);
+
+const preview = () => {
+    body.innerHTML = "";
+    putHTMLElements(finalConvo);
+}
+document.querySelector("#preview").addEventListener("click",preview);
+

@@ -1,101 +1,270 @@
 {
     "them1" : {
-        "mb1" : {
+        "0" : {
                 "title": "*Introduction*",
                 "subtitle": "*Today* =time=",
                 "type": "timedate"
         },
-        "mb2" : {
+        "1" : {
                 "m": "Hi Brandon! How are you? Just asking if you’re available for a quick refresher about yourself.",
                 "type": "last"
         }
     },
-    "me1" : {
-        "mb1" : {
+    "me2" : {
+        "0" : {
             "m": "Sure. Hi I’m Brandon from *Cavite State University* currently staying in Cavite, Philippines. I’m 25 years old. I’m a *full-stack developer* but really prefer *frontend development*.",
             "type": "first"
         },
-        "mb2" : {
+        "1" : {
             "m": "[Me]",
             "type": "pic"
         },
-        "mb3" : {
+        "2" : {
             "m": "This is how I look, by the way.",
             "type": "first"
         },
-        "mb4" : {
+        "3" : {
             "m": "[rofl] [rofl]",
             "type": "emoji"
         }
     },
-    "them2" : {
-        "mb1" : {
+    "them3" : {
+        "0" : {
             "title": "*Skills*",
             "subtitle": "Frontend and Backend Skills",
             "type": "timedate"
         },
-        "mb2" : {
+        "1" : {
             "m": "We’re actually looking for a developer on our company, and they’re looking for someone with experience. How’s your credentials?",
             "type": "last"
         }
     },
-    "me2" : {
-        "mb1" : {
+    "me4" : {
+        "0" : {
             "m": "Here are my current skills.",
             "type": "first"
         },
-        "mb2" : {
+        "1" : {
             "m": "• For *frontend* skills:\nBasic Front End Languages: \n- *HTML*, *CSS* and *JavaScript*",
             "type": "first"
         },
-        "mb3" : {
+        "2" : {
             "m": "• CSS Libraries/Frameworks:\n*Bootstrap*, *SASS/SCSS*",
             "type": "first"
         },
-        "mb4" : {
+        "3" : {
             "m": "• JavaScript frameworks:\n*jQuery*, *Typescript*, *Angular 16*, *ReactJS* and *Vue*.",
             "type": "last"
         }
     },
-    "them3": {
-        "mb1" : {
+    "them5": {
+        "0" : {
             "m": "How about your backend skills?",
             "type": "last"
         },
-        "mb2" : {
+        "1" : {
             "m": "[think]",
             "type": "emoji"
         }
     },
-    "me3" : {
-        "mb1" : {
+    "me6" : {
+        "0" : {
             "m": "For the *backend*:",
             "type": "first"
         },
-        "mb2" : {
+        "1" : {
             "m": "• Server Side Languages:\n*PHP*, *Typescript*, *ASP.NET (C#)* and *nodeJS*",
             "type": "first"
         },
-        "mb3" : {
+        "2" : {
             "m": "• Database: *mySQL*, *MS SQL* and *PostGre SQL*",
             "type": "first"
         },
-        "mb4" : {
+        "3" : {
             "m": "I’m also familiar with *REST API* and *Content Management Services (CMS)* such as *WordPress* and *Shopify*.",
             "type": "first"
         },
-        "mb5" : {
+        "4" : {
             "m": "...and a little bit of *Java*, *Python* and PHP frameworks: *Laravel*.",
             "type": "first"
         },
-        "mb6" : {
-            "m" : "I am also have high level knowledge about cloud software services such as *Azure DevOps* and *Amazon Web Services*.",
+        "5" : {
+            "m" : "I also have high level knowledge about cloud software services such as *Azure DevOps* and *Amazon Web Services*.",
              "type": "first"
         },
-        "mb7" : {
-            "m" : "[linkedin] Brandon Balbada",
+        "6" : {
+            "m" : "Check more here, let me provide the link...",
+             "type": "first"
+        },
+        "7" : {
+            "m" : "#[linkedin]#Brandon Balbada",
             "type": "lastlink",
-            "link": "https://www.behance.net/brandonbalbada"
+            "link": "https://www.linkedin.com/in/brandon-balbada-0a15201bb/"
         }
-    }
+    },
+    "them7": {
+        "0": {
+          "m": "Fascinating. How about your other skills?",
+          "type": "last"
+        },
+        "1": {
+          "m": "files/icons/amazed.png",
+          "type": "emoji"
+        }
+    },
+    "me8": {
+        "0": {
+          "m": "I have a basic understanding on *UI/UX* and knows how to create designs using *Figma* and *Adobe XD*. Yup I’m pretty well rounded.",
+          "type": "first"
+        },
+        "1": {
+          "m": "#[behance]#brandonbalbada",
+          "link": "https://www.behance.net/brandonbalbada",
+          "type": "lastlink"
+        },
+        "2": {
+          "m": "[wink] [sparkle]",
+          "type": "emoji"
+        }
+    },    
+    "them9": {
+      "0": {
+        "title": "<strong>Experiences</strong>",
+        "subtitle": "Mar 2021 to Present",
+        "type": "timedate"
+      },
+      "1": {
+        "m": "You have a lot of skills! Can you share some of your career experiences with me?",
+        "type": "last"
+      },
+      "2": {
+        "m": "files/icons/work.png",
+        "type": "emoji"
+      },
+      "3": {
+            "title": "",
+            "subtitle": "Mar 2021 to Aug 2022",
+            "type": "timedate"
+          }
+    },
+        "me11": {
+          "0": {
+            "m": "I joined <strong>GoCrayons Digital Inc.</strong> as a <strong>Senior Web Developer</strong> on the <strong>March 2021</strong>.",
+            "type": "first"
+          },
+          "1": {
+            "m": "We mostly worked with <strong>WordPress</strong> and sometimes <strong>Shopify</strong> which have PHP as the used backend language and created various web projects for the clients.",
+            "type": "first"
+          },
+          "2": {
+            "m": "I went from being a clueless developer to a confident web developer. Some of my colleagues have since become my friends, as the culture they foster aligns with my preferences.",
+            "type": "first"
+          },
+          "3": {
+            "m": "files//GoCrayons.jpg",
+            "type": "pic"
+          },
+          "4": {
+            "m": "files/icons/flex.png",
+            "type": "emoji"
+          }
+        },
+
+"them11": {
+      "0": {
+        "title": "",
+        "subtitle": "September 2022 until Present",
+        "type": "timedate"
+      }
+    },
+    "me12": {
+      "0": {
+        "m": "After almost 2 years, I applied and successfully got the job at <strong>Accenture Inc.</strong> as an <strong>Application Development Analyst</strong> (which will change as <strong>Custom Software Engineering Analyst</strong> in <strong>September 2022</strong>.",
+        "type": "first"
+      },
+      "1": {
+        "m": "And yeah... even I was surprised on the new work culture here. <strong>Work From Home</strong> setup (especially on the near end of the pandemic), we were never required to report at the offices. Emphasis on their <strong>BENEFITS</strong>, this is what made me stay every time.",
+        "type": "first"
+      },
+      "2": {
+        "m": "Not going to lie, I learned more what I wanted here in <strong>Accenture</strong> and I will always be thankful. I learned <strong>Angular 16</strong>, <strong>MS SQL</strong>, and <strong>ASP.NET (C#)</strong>. This project introduced <strong>Amazon Web Services (AWS)</strong> and <strong>Azure DevOps</strong> to me. I also learned another CMS called <strong>Sitecore</strong> and <strong>Adobe Experience Manager (AEM)</strong> in this company.",
+        "type": "first"
+      },
+      "3": {
+        "m": "I was also introduced with some testing tools here, such as using <strong>Postman</strong> to check for API testing. Some high level knowledge on <strong>Cypress</strong> and <strong>Selenium</strong>. ",
+        "type": "first"
+      },
+      "4": {
+          "m": "[Accenture]",
+          "type": "pic"
+        },
+      "5": {
+          "m": "[party]",
+          "type": "emoji"
+        }
+    },
+        "them13": {
+          "0": {
+            "title": "<strong>Hire Me</strong>",
+            "subtitle": "Please Please Please!",
+            "type": "timedate"
+          },
+          "1": {
+            "m": "Wow. What a journey! And the million-dollar question is why should we hire you?",
+            "type": "last"
+          }
+        },
+        "me14": {
+          "0": {
+            "m": "All the things I’ve told you, all I can say is I’m quite experienced on everything development related, even though there are things that I know, <strong>I am always willing to learn everything</strong>.",
+            "type": "first"
+          },
+          "1": {
+            "m": "I find myself <strong>creative and resourceful</strong>, which will impact my productivity on tasks and will deliver important deliverables with accuracy and speed.",
+            "type": "first"
+          },
+          "2": {
+            "m": "When I want to achieve something, I am <strong>focused and determined</strong> to complete any task that was given to me. ",
+            "type": "first"
+          },
+          "3": {
+            "m": "And of course, as a human, there are things that I still don’t know, I will not hesitate to <strong>communicate for help with my teammates</strong> since I know how important asking for assistance and how it greatly affects the development process.",
+            "type": "first"
+          },
+          "4": {
+            "m": "That’s all, thank you!",
+            "type": "last"
+          },
+          "5": {
+            "m": "files/icons/bow.png",
+            "type": "emoji"
+          }
+        },
+        "them15": {
+            "0": {
+                "m": "[clap] [clap] [clap]",
+                "type": "emoji"
+            },
+            "1": {
+                "m": "We’ll let you know. You can leave your contacts and reference here to reach you and help you once we made our minds.",
+                "type": "last"
+            }
+        },
+        "me16": {
+            "0": {
+              "m": "#[behance]#Brandon Balbada",
+              "link": "https://www.behance.net/brandonbalbada",
+              "type": "lastlink"
+            },
+            "1": {
+              "m": "#[email]#brandonbalbada@gmail.com",
+              "link": "mailto:brandonbalbada@gmail.com",
+              "type": "lastlink"
+            },
+            "2": {
+              "m": "#[linkedin]#Brandon Balbada",
+              "link": "https://www.linkedin.com/in/brandon-balbada-0a15201bb/",
+              "type": "lastlink"
+            }
+        }
 }

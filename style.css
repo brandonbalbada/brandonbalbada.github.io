@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+html, #convo {
+  scroll-behavior: smooth;
+}
+
 div {
   display: flex;
 }
@@ -37,6 +41,13 @@ p {
   margin: 0;
 }
 
+a,
+a:active,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
 section {
   display: flex;
   justify-content: center;
@@ -54,6 +65,14 @@ section .row {
 section .row > div {
   width: 100%;
 }
+section .row #leftBanner {
+  flex-flow: column nowrap;
+  opacity: 0;
+}
+section .row #leftBanner .convoGenerator,
+section .row #leftBanner .convoCreated {
+  flex-flow: column nowrap;
+}
 section .row #phone {
   justify-content: center;
   border: 6px solid #ABA9A4;
@@ -67,6 +86,7 @@ section .row #phone #screen {
   overflow: hidden;
   border-radius: 80px;
   border: 10px solid #000000;
+  width: 100%;
 }
 section .row #phone #screen #header {
   padding: 25px 40px 15px;
@@ -147,6 +167,23 @@ section .row #phone #screen #convo .messageGroup .message.emoji {
   padding: 0;
   background-color: none;
 }
+section .row #phone #screen #convo .messageGroup .message.link {
+  transition: 100ms ease-in-out;
+  background-color: #4CD865;
+  padding: 0;
+}
+section .row #phone #screen #convo .messageGroup .message.link a {
+  font-weight: 600;
+  padding: 10px 15px;
+}
+section .row #phone #screen #convo .messageGroup .message.link a img {
+  height: 12px;
+  width: auto;
+  margin-right: 5px;
+}
+section .row #phone #screen #convo .messageGroup .message.link:hover {
+  filter: brightness(1.1);
+}
 section .row #phone #screen #convo .messageGroup p {
   letter-spacing: 1px;
 }
@@ -164,7 +201,7 @@ section .row #phone #screen #convo .messageGroup.warning span {
 section .row #phone #screen #convo .messageGroup.warning img {
   height: 20px;
 }
-section .row #phone #screen #convo .messageGroup.me .message:not(.emoji) {
+section .row #phone #screen #convo .messageGroup.me .message:not(.emoji):not(.link) {
   background-color: #EEEEEE;
 }
 section .row #phone #screen #convo .messageGroup.them {
@@ -183,13 +220,25 @@ section .row #phone #screen #convo .messageGroup.them .message.timedate {
   justify-self: unset;
   flex-flow: column nowrap;
   align-items: center;
-  margin-bottom: 10px;
   color: #929AAB;
   letter-spacing: 0.5px;
 }
 section .row #phone #screen #convo .messageGroup.them .message p {
   font-weight: 300;
   color: #F7F7F7;
+}
+
+.convoGenerator pre {
+  display: flex;
+  white-space: break-spaces;
+  flex-flow: column;
+}
+.convoGenerator pre code {
+  max-height: 150px;
+  overflow-y: scroll;
+}
+.convoGenerator button {
+  align-self: flex-start;
 }
 
 @media (prefers-color-scheme: dark) {

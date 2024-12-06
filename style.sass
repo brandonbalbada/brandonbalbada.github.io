@@ -28,6 +28,9 @@ $maxContentWidth: 1200px
 
 *
     box-sizing: border-box
+    
+html, #convo
+    scroll-behavior: smooth
 
 div 
     display: flex
@@ -41,9 +44,16 @@ body
     font-family: SF Pro
     max-height: 100svh
     overflow: hidden
+
 p
     white-space: pre-line
     margin: 0
+
+a,
+a:active,
+a:visited
+    color: inherit
+    text-decoration: none
 
 section
     display: flex
@@ -60,6 +70,12 @@ section
         & > div 
             width: 100%
 
+        #leftBanner
+            flex-flow: column nowrap
+            opacity: 0
+            .convoGenerator,
+            .convoCreated
+                flex-flow: column nowrap
         #phone
             justify-content: center             
             border: 6px solid #ABA9A4
@@ -67,12 +83,13 @@ section
             max-width: 90%
             border-radius: 85px
             overflow: hidden
-            #screen            
+            #screen                        
+                // min-width: 500px
                 flex-flow: column nowrap
                 overflow: hidden
                 border-radius: 80px
                 border: 10px solid $black
-                
+                width: 100%
                 #header
                     padding: 25px 40px 15px
                     flex-flow: column
@@ -144,8 +161,22 @@ section
                             &.emoji
                                 padding: 0
                                 background-color: none
+                            
+                            &.link
+                                transition: 100ms ease-in-out
+                                background-color: $link
+                                padding: 0
+                                a                        
+                                    font-weight: 600    
+                                    padding: 10px 15px
+                                    img
+                                        height: 12px
+                                        width: auto
+                                        margin-right: 5px
+                                &:hover
+                                    filter: brightness(1.1)
 
-                        p 
+                        p
                             letter-spacing: 1px 
                         
                         &.warning
@@ -160,7 +191,7 @@ section
                                 height: 20px
        
                         &.me                        
-                            .message:not(.emoji)               
+                            .message:not(.emoji):not(.link)               
                                 background-color: $me
                             
                         &.them
@@ -179,13 +210,26 @@ section
                                     justify-self: unset
                                     flex-flow: column nowrap
                                     align-items: center
-                                    margin-bottom: 10px 
+                                    // margin-bottom: 10px 
                                     color: $grey 
                                     letter-spacing: .5px
                                 p
                                     font-weight: 300
                                     color: $white
-                           
+
+.convoGenerator
+    pre
+        display: flex
+        white-space: break-spaces
+        flex-flow: column
+
+        code
+            max-height: 150px
+            overflow-y: scroll
+
+    button
+        align-self: flex-start
+                   
 @media (prefers-color-scheme: dark) 
     body::before
         content: "darkmode"
