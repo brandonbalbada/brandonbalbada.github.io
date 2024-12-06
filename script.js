@@ -85,10 +85,9 @@ const createHTMLElement = (sender,message) => {
             break;
             case "link":
                 let iconFilter = currentMessage.m.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
-                
                 if (iconFilter){
                      for (const word in iconFilter){
-                         let updatedWord = `<img src="${iconFilter[word].replaceAll("#","")}/>`;
+                         let updatedWord = `<img src="${iconFilter[word].replaceAll("#","")}"/>`;
                          currentMessage.m = currentMessage.m.replaceAll(iconFilter[word],updatedWord);
                          messageTagAndContents.push(["a",currentMessage.m]);
                      }
