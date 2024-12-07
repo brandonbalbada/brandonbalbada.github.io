@@ -445,6 +445,9 @@ div.modal .body {
   section .row #rightBanner #phone #screen #convo {
     padding: 10px 20px 50px;
   }
+  section .row #rightBanner #phone #screen #convo .messageGroup .message {
+    max-width: 90%;
+  }
   section .row #rightBanner #phone #screen #header {
     padding: 25px 40px 15px;
   }
