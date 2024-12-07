@@ -415,16 +415,23 @@ div.modal .body {
     text-align: center;
   }
   section .row #rightBanner #phone {
-    min-width: 535px;
+    min-width: 640px;
     max-width: 60vw;
   }
 }
 @media only screen and (max-width: 640px) {
+  section .row {
+    padding: 30px 20px;
+  }
+  section .row #rightBanner #phone {
+    min-width: 400px;
+    max-width: unset;
+  }
   section .row #rightBanner #phone #screen #convo {
     padding: 10px 20px 50px;
   }
   section .row #rightBanner #phone #screen #header {
-    padding: 25px 20px 15px;
+    padding: 25px 40px 15px;
   }
   section .row #rightBanner #phone #screen #header #floatingHeader #dynamicHeader {
     display: none;
