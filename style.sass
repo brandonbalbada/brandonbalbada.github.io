@@ -384,6 +384,9 @@ div.modal
 @media only screen and (max-width: 1200px)
     body 
         overflow: scroll
+    h1
+        font-size: 2.5em
+        line-height: 1em
     section
         min-height: unset
         max-height: unset
@@ -398,6 +401,9 @@ div.modal
                 flex: unset
                 align-items: center
 
+                #convoSections
+                    justify-content: center
+
                 p
                     text-align: center
 
@@ -407,14 +413,20 @@ div.modal
                     max-width: 60vw
 
 @media only screen and (max-width: 640px)
+    h1
+        font-size: 2em
+        line-height: 1em
+        text-align: center
     section
         .row
             padding: 30px 20px
+            #leftBanner
+                #convoSections
+                    justify-content: center
             #rightBanner
                 #phone    
-                    min-width: 400px
+                    min-width: unset
                     max-width: unset
-          
                     #screen
                         #convo
                             padding: 10px 20px 50px
