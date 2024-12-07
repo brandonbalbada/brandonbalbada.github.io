@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="files/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <title>BB | Portfolio</title>
 </head>
@@ -11,7 +12,26 @@
     <section>
         <div class="row">
             <div id="leftBanner">
+                <img src="files/bb.png"/>
+                <h1>Brandon Balbada</h1>
+                <p>
+                    Kumusta! I’m a passionate developer who likes coding but hates working. <img src="files/icons/rofl.png"/> Know more about me here. <img src="files/icons/smile.png"/>
+                </p>
                 <div id="convoSections"></div>
+                <div class="contactGroup">
+                    <span></span>
+                    <div>
+                        <img src=""/>
+                        <img src=""/>
+                    </div>
+                </div>
+                <div class="contactGroup">
+                    <span></span>
+                    <div>
+                        <img src=""/>
+                        <img src=""/>
+                    </div>
+                </div>
              
             </div>
             <div id="rightBanner">
@@ -21,25 +41,29 @@
                             <div id="floatingHeader">
                                 <span id="headerTime"></span>
                                 <div id="dynamicHeader"></div>
-                                <div id="batteryIndicator">o o o</div>
+                                <div id="batteryIndicator">
+                                    <img id="signal" src="files/icons/signal.svg" alt="signal"/>
+                                    <img class="wifi" src="files/icons/wifi.svg" alt="wifi"/>
+                                    <img id="battery" src="files/icons/battery.png" alt="battery"/>
+                                </div>
                             </div>
                             <div id="messageContact">
-                                <img src="files/icons/chevron-left.png" title="back"/>
+                                <img src="files/icons/chevron-left.svg" title="back"/>
                                 <div id="contact">
                                     <img src="files/thumbnail.png"/>
-                                    <p>Brandon <span>></span></p>
+                                    <p>Brandon <img src="files/icons/chevron-right.svg" title="next"/></p>
                                 </div>
-                                <img src="files/icons/videocall.png" title="videocall"/>
+                                <img src="files/icons/videocall.svg" title="videocall"/>
                             </div>
                         </div>
                         <div id="convo" tabindex="-1">
                             <noscript>
-                                <div class="messageGroup them last warning">
-                                    <div>
+                                <div class="messageGroup them warning">
+                                    <div class="message last" tabindex="1">
                                         <p>Looks like you have no connnection. Enable javascript to see conversation.</p>
-                                        <img src="files/icons/warning.png">
                                     </div>
-                                    <span>Not Delivered</span>
+                                    <img src="files/icons/warning.png"/>
+                                    <span class="status">Not Delivered</span>
                                 </div>
                             </noscript>
                         </div>

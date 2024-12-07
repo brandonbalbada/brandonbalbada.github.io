@@ -1,3 +1,8 @@
+@media (prefers-color-scheme: dark) {
+  body::before {
+    content: "darkmode";
+  }
+}
 @font-face {
   font-family: "SF Pro";
   font-weight: 300;
@@ -72,7 +77,13 @@ section .row > div {
 }
 section .row #leftBanner {
   flex-flow: column nowrap;
-  opacity: 0;
+  justify-content: center;
+}
+section .row #leftBanner > img {
+  width: 50px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 section .row #leftBanner .convoGenerator,
 section .row #leftBanner .convoCreated {
@@ -106,7 +117,23 @@ section .row #phone #screen #header #floatingHeader {
 }
 section .row #phone #screen #header #floatingHeader #headerTime,
 section .row #phone #screen #header #floatingHeader #batteryIndicator {
-  width: 65px;
+  width: 85px;
+  color: #333333;
+}
+section .row #phone #screen #header #floatingHeader #batteryIndicator {
+  width: 85px;
+  display: flex;
+  align-items: center;
+}
+section .row #phone #screen #header #floatingHeader #batteryIndicator img {
+  height: 16px;
+}
+section .row #phone #screen #header #floatingHeader #batteryIndicator img:not(:last-child) {
+  margin-right: 5px;
+}
+section .row #phone #screen #header #floatingHeader #batteryIndicator img#battery {
+  height: unset;
+  width: 30px;
 }
 section .row #phone #screen #header #floatingHeader #headerTime {
   font-size: 1em;
@@ -128,6 +155,21 @@ section .row #phone #screen #header #messageContact {
 }
 section .row #phone #screen #header #messageContact #contact {
   flex-flow: column nowrap;
+  align-items: center;
+}
+section .row #phone #screen #header #messageContact #contact > img {
+  border-radius: 50%;
+}
+section .row #phone #screen #header #messageContact #contact p {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+section .row #phone #screen #header #messageContact #contact p img {
+  height: 0.75em;
+  margin-left: 5px;
 }
 section .row #phone #screen #convo {
   overflow-y: scroll;
@@ -143,12 +185,33 @@ section .row #phone #screen #convo noscript {
 }
 section .row #phone #screen #convo .messageGroup {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   margin-bottom: 15px;
   font-weight: 300;
 }
 section .row #phone #screen #convo .messageGroup:last-child {
   margin-bottom: 0;
+}
+section .row #phone #screen #convo .messageGroup.warning {
+  flex-flow: row wrap;
+}
+section .row #phone #screen #convo .messageGroup.warning .message {
+  flex-basis: 93%;
+}
+section .row #phone #screen #convo .messageGroup.warning img {
+  flex-basis: 7%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 7%;
+  margin-left: 10px;
+}
+section .row #phone #screen #convo .messageGroup.warning .status {
+  color: #FF3C2F;
+  flex-basis: 100%;
+  font-weight: 600;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: right;
 }
 section .row #phone #screen #convo .messageGroup .message {
   margin-bottom: 5px;
@@ -157,6 +220,19 @@ section .row #phone #screen #convo .messageGroup .message {
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 22px;
+  color: #333333;
+  position: relative;
+}
+section .row #phone #screen #convo .messageGroup .message.last::before {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: inherit;
+  -webkit-clip-path: polygon(1.533% 100%, 1.533% 100%, 2.961% 99.915%, 7.047% 99.631%, 13.497% 99.1%, 22.014% 98.277%, 32.304% 97.115%, 44.071% 95.569%, 57.019% 93.592%, 70.854% 91.138%, 85.279% 88.162%, 100% 84.615%, 100% 84.615%, 110.864% 77.754%, 114.802% 66.108%, 113.146% 51.546%, 107.227% 35.939%, 98.377% 21.154%, 87.926% 9.062%, 77.207% 1.531%, 67.551% 0.431%, 60.288% 7.631%, 56.751% 25%, 56.751% 25%, 57.199% 30.579%, 56.129% 37.785%, 53.612% 46.167%, 49.721% 55.277%, 44.528% 64.663%, 38.103% 73.877%, 30.52% 82.467%, 21.849% 89.985%, 12.163% 95.979%, 1.533% 100%);
+          clip-path: polygon(1.533% 100%, 1.533% 100%, 2.961% 99.915%, 7.047% 99.631%, 13.497% 99.1%, 22.014% 98.277%, 32.304% 97.115%, 44.071% 95.569%, 57.019% 93.592%, 70.854% 91.138%, 85.279% 88.162%, 100% 84.615%, 100% 84.615%, 110.864% 77.754%, 114.802% 66.108%, 113.146% 51.546%, 107.227% 35.939%, 98.377% 21.154%, 87.926% 9.062%, 77.207% 1.531%, 67.551% 0.431%, 60.288% 7.631%, 56.751% 25%, 56.751% 25%, 57.199% 30.579%, 56.129% 37.785%, 53.612% 46.167%, 49.721% 55.277%, 44.528% 64.663%, 38.103% 73.877%, 30.52% 82.467%, 21.849% 89.985%, 12.163% 95.979%, 1.533% 100%);
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
 }
 section .row #phone #screen #convo .messageGroup .message:last-child {
   margin-bottom: 0;
@@ -208,19 +284,9 @@ section .row #phone #screen #convo .messageGroup p {
 section .row #phone #screen #convo .messageGroup p .emoji {
   height: 1em;
 }
-section .row #phone #screen #convo .messageGroup.warning {
-  align-items: end;
-}
-section .row #phone #screen #convo .messageGroup.warning div {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
-section .row #phone #screen #convo .messageGroup.warning span {
-  color: #FF3C2F;
-}
-section .row #phone #screen #convo .messageGroup.warning img {
-  height: 20px;
+section .row #phone #screen #convo .messageGroup.me .message.last::before {
+  left: -14px;
+  bottom: 0px;
 }
 section .row #phone #screen #convo .messageGroup.me .message:not(.emoji):not(.link) {
   background-color: #EEEEEE;
@@ -232,6 +298,11 @@ section .row #phone #screen #convo .messageGroup.them .message {
   align-self: end;
   display: flex;
   justify-content: flex-end;
+}
+section .row #phone #screen #convo .messageGroup.them .message.last::before {
+  right: -14px;
+  bottom: 0;
+  transform: scaleX(-1);
 }
 section .row #phone #screen #convo .messageGroup.them .message.first, section .row #phone #screen #convo .messageGroup.them .message.last, section .row #phone #screen #convo .messageGroup.them .message:not(.emoji) {
   background-color: #007AFF;
@@ -248,6 +319,9 @@ section .row #phone #screen #convo .messageGroup.them .message.timedate {
   align-items: center;
   color: #929AAB;
   letter-spacing: 0.5px;
+}
+section .row #phone #screen #convo .messageGroup.them .message.timedate img {
+  height: 1em;
 }
 section .row #phone #screen #convo .messageGroup.them .message p {
   font-weight: 300;
@@ -284,10 +358,4 @@ div.modal .body {
   padding: 25px;
   background-color: #F7F7F7;
   flex-flow: column;
-}
-
-@media (prefers-color-scheme: dark) {
-  body::before {
-    content: "darkmode";
-  }
 }/*# sourceMappingURL=style.css.map */

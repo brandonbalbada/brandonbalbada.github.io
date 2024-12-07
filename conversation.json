@@ -206,7 +206,7 @@
         "them13": {
           "0": {
             "title": "<strong>Hire Me</strong>",
-            "subtitle": "Please Please Please!",
+            "subtitle": "Please Please Please! #[please]#",
             "type": "timedate"
           },
           "1": {
@@ -254,12 +254,12 @@
             "0": {
               "m": "#[behance]#Brandon Balbada",
               "link": "https://www.behance.net/brandonbalbada",
-              "type": "lastlink"
+              "type": "link"
             },
             "1": {
               "m": "#[email]#brandonbalbada@gmail.com",
               "link": "mailto:brandonbalbada@gmail.com",
-              "type": "lastlink"
+              "type": "link"
             },
             "2": {
               "m": "#[linkedin]#Brandon Balbada",

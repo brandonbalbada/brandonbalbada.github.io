@@ -51,6 +51,25 @@ const updateText = (text, type = "") => {
         }
    }
 
+    let emojiFilter2 = filterText.match(/#([A-Za-z.\/]+)#/g);
+    if (emojiFilter2){
+         for (const word in emojiFilter2){
+             let updatedWord = `<img class="emoji" src="${emojiFilter2[word].replaceAll("#","")}"/>`;
+             filterText = filterText.replaceAll(emojiFilter2[word],updatedWord);
+         }
+    }
+
+    let iconImageFilter = filterText.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
+    if (iconImageFilter){
+        
+        console.log(text);
+        console.log(iconImageFilter);
+         for (const word in iconImageFilter){
+             let updatedWord = `<img src="${iconImageFilter[word].replaceAll("#","")}"/>`;
+             filterText = filterText.replaceAll(iconImageFilter[word],updatedWord);
+         }
+    }
+
    return filterText;
 }; 
 
@@ -67,7 +86,7 @@ const createHTMLElement = (sender,message) => {
         let messageAdditionalClass = "";
 
         if (currentMessage.type.indexOf("link") !== -1){
-            messageAdditionalClass = currentMessage.type.indexOf("first") !== -1 ? "first" : "last";
+            messageAdditionalClass = currentMessage.type.indexOf("last") !== -1 ? "last" : "first";
             currentMessage.type = currentMessage.type.replace(messageAdditionalClass,"");
         }
 
@@ -78,19 +97,20 @@ const createHTMLElement = (sender,message) => {
             case "timedate":
                 for (let contents in currentMessage){
                     if (contents != "type") {
-                        messageTagAndContents.push(["span",currentMessage[contents]]);
+                        messageTagAndContents.push(["span",updateText(currentMessage[contents])]);
                     }
                 }
             break;
             case "link":
-                let iconFilter = currentMessage.m.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
-                if (iconFilter){
-                     for (const word in iconFilter){
-                         let updatedWord = `<img src="${iconFilter[word].replaceAll("#","")}"/>`;
-                         currentMessage.m = currentMessage.m.replaceAll(iconFilter[word],updatedWord);
-                         messageTagAndContents.push(["a",currentMessage.m]);
-                     }
-                }
+                // let iconImageFilter = currentMessage.m.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
+                // if (iconImageFilter){
+                //      for (const word in iconImageFilter){
+                //          let updatedWord = `<img src="${iconImageFilter[word].replaceAll("#","")}"/>`;
+                //          currentMessage.m = currentMessage.m.replaceAll(iconImageFilter[word],updatedWord);
+                //          messageTagAndContents.push(["a",currentMessage.m]);
+                //      }
+                // }
+                messageTagAndContents.push(["a",updateText(currentMessage.m)]);
             break;
             case "pic":
             case "emoji":
@@ -103,16 +123,7 @@ const createHTMLElement = (sender,message) => {
             case "first":
             case "last":
             default:
-                let emojiFilter = currentMessage.m.match(/#([A-Za-z.\/]+)#/g);
-                if (emojiFilter){
-                    console.log(emojiFilter);
-
-                     for (const word in emojiFilter){
-                         let updatedWord = `<img class="emoji" src="${emojiFilter[word].replaceAll("#","")}"/>`;
-                         currentMessage.m = currentMessage.m.replaceAll(emojiFilter[word],updatedWord);
-                     }
-                }
-                messageTagAndContents = [["p",currentMessage.m]]; 
+                messageTagAndContents = [["p",updateText(currentMessage.m)]]; 
             break;
         }
 
@@ -143,8 +154,9 @@ const createHTMLElement = (sender,message) => {
             messageInsideElement.appendChild(statusSpan);
         }
 
+        currentMessage.type !== "emoji" && messageInsideElement.setAttribute("tabindex","1");
         messageElement.appendChild(messageInsideElement);
-        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").toLowerCase());
+        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").replaceAll(" ","_").toLowerCase());
     }
     body.appendChild(messageElement);
     // create a condition inside first and last for emojis
@@ -258,3 +270,28 @@ const preview = () => {
 }
 document.querySelector("#preview").addEventListener("click",preview);
 
+const updateSignalSrc = () => {
+    const signalElement = document.getElementById("signal");
+    const internetSpeed = navigator.connection.downlink;
+    let signalSrc;
+
+    if (internetSpeed >= 1){
+        if (internetSpeed >= 8){
+            signalSrc = "signal.svg";
+        } else if (internetSpeed >= 4){
+            signalSrc = "signal-good.svg";
+        } else if (internetSpeed >= 1){
+            signalSrc = "signal-bad.svg";
+        }    
+    }
+    else {
+        // body.innerHTML = "";
+        signalSrc = "no-signal.svg";
+    }  
+
+    signalElement.setAttribute("src",`files/icons/${signalSrc}`);
+
+    setTimeout(updateSignalSrc, 3000);
+}
+
+updateSignalSrc();
