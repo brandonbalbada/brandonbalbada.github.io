@@ -36,7 +36,6 @@ const updateText = (text, type = "") => {
 
    let emojiFilter = text.match(/\[(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})\]/g);
    if (emojiFilter){ 
-    console.log(emojiFilter);
         for (const word in emojiFilter){
             const filetype = type == "pic" ? ["","jpg"] : ["icons/","png"];
             let updatedWord = `files/${filetype[0]}${emojiFilter[word].replaceAll(/\[|\]/g,"")}.${filetype[1]}`;
@@ -92,7 +91,6 @@ const createHTMLElement = (sender,message) => {
                          messageTagAndContents.push(["a",currentMessage.m]);
                      }
                 }
-             
             break;
             case "pic":
             case "emoji":
@@ -105,9 +103,20 @@ const createHTMLElement = (sender,message) => {
             case "first":
             case "last":
             default:
+                let emojiFilter = currentMessage.m.match(/#([A-Za-z.\/]+)#/g);
+                if (emojiFilter){
+                    console.log(emojiFilter);
+
+                     for (const word in emojiFilter){
+                         let updatedWord = `<img class="emoji" src="${emojiFilter[word].replaceAll("#","")}"/>`;
+                         currentMessage.m = currentMessage.m.replaceAll(emojiFilter[word],updatedWord);
+                     }
+                }
                 messageTagAndContents = [["p",currentMessage.m]]; 
             break;
         }
+
+
 
         for (let message in messageTagAndContents){
             let messageTag = messageTagAndContents[message][0];
@@ -122,11 +131,18 @@ const createHTMLElement = (sender,message) => {
                     messageDetails.setAttribute("href",currentMessage.link);
                     messageDetails.setAttribute("target","_blank");
                 }
-                //  && console.log(messageContents);
                 messageDetails.innerHTML = messageContents;     
             }
             messageInsideElement.appendChild(messageDetails);
         }
+        
+        if (currentMessage.status !== undefined) {
+            let statusSpan = document.createElement("span");
+            statusSpan.classList.add("status");
+            statusSpan.innerHTML = currentMessage.status;
+            messageInsideElement.appendChild(statusSpan);
+        }
+
         messageElement.appendChild(messageInsideElement);
         currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").toLowerCase());
     }
@@ -150,7 +166,6 @@ const putHTMLElements = (conversation) => {
             messageContents.push(message);
         }
         createHTMLElement(filterSender,messageContents);
-        console.log(count);
         count++;
     }
 }

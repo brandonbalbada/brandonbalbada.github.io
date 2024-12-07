@@ -19,6 +19,11 @@ $maxContentWidth: 1200px
 
 @font-face 
     font-family: "SF Pro"
+    font-weight: 500
+    src: url("../files/fonts/SFPRODISPLAYMEDIUM.OTF")
+
+@font-face 
+    font-family: "SF Pro"
     font-weight: 600
     src: url("../files/fonts/SFPRODISPLAYBOLD.OTF")
 
@@ -80,7 +85,7 @@ section
             justify-content: center             
             border: 6px solid #ABA9A4
             max-height: calc(100vh - 120px)
-            max-width: 90%
+            max-width: 85%
             border-radius: 85px
             overflow: hidden
             #screen                        
@@ -160,7 +165,13 @@ section
                             
                             &.emoji
                                 padding: 0
-                                background-color: none
+                                background-color: unset
+                                flex-flow: row wrap
+                                img
+                                    height: 48px
+
+                                span
+                                    flex: 100% 0 0
                             
                             &.link
                                 transition: 100ms ease-in-out
@@ -175,9 +186,15 @@ section
                                         margin-right: 5px
                                 &:hover
                                     filter: brightness(1.1)
-
+                            .status
+                                font-weight: 500
+                                font-size: 0.9em
+                                color: #929AAB
+                                letter-spacing: 0.8px
                         p
                             letter-spacing: 1px 
+                            .emoji
+                                height: 1em
                         
                         &.warning
                             align-items: end
@@ -196,13 +213,19 @@ section
                             
                         &.them
                             justify-content: end
+
                             .message
                                 align-self: end
-                                
+                                display: flex   
+                                justify-content: flex-end
+    
                                 &.first,
                                 &.last,
                                 &:not(.emoji)
                                     background-color: $them
+                                &.emoji
+                                    span
+                                        text-align: right
                                 &.timedate    
                                     background-color: unset
                                     width: 100%
@@ -210,14 +233,15 @@ section
                                     justify-self: unset
                                     flex-flow: column nowrap
                                     align-items: center
-                                    // margin-bottom: 10px 
                                     color: $grey 
                                     letter-spacing: .5px
                                 p
                                     font-weight: 300
-                                    color: $white
+                                    color: $white  
 
-.convoGenerator
+
+#convoGenerator
+    display: none
     pre
         display: flex
         white-space: break-spaces
@@ -226,9 +250,25 @@ section
         code
             max-height: 150px
             overflow-y: scroll
-
     button
         align-self: flex-start
+
+div.modal 
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .3)
+    justify-content: center
+    align-items: center
+
+    .body
+        padding: 25px
+        background-color: $white
+        flex-flow: column
+          
+
                    
 @media (prefers-color-scheme: dark) 
     body::before

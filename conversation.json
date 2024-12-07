@@ -114,7 +114,7 @@
     },
     "me8": {
         "0": {
-          "m": "I have a basic understanding on *UI/UX* and knows how to create designs using *Figma* and *Adobe XD*. Yup I’m pretty well rounded.",
+          "m": "I have a basic understanding on *UI/UX* and knows how to create designs using *Figma* and *Adobe XD*. Yup I’m pretty #[clap]# well-rounded #[clap]#.",
           "type": "first"
         },
         "1": {
@@ -266,5 +266,16 @@
               "link": "https://www.linkedin.com/in/brandon-balbada-0a15201bb/",
               "type": "lastlink"
             }
-        }
+        },
+        "them17": {
+            "0": {
+              "m": "This is acknowledged! See you when I see you.",
+              "type": "last"
+            },
+            "1": {
+              "m": "[smile]",
+              "type": "emoji",
+              "status": "Delivered"
+            }
+      }
 }

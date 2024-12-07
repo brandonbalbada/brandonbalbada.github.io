@@ -12,34 +12,7 @@
         <div class="row">
             <div id="leftBanner">
                 <div id="convoSections"></div>
-                <div class="convoGenerator">
-                        Create a convo here:
-                        <span>
-                            ** = bold || == = dynamicTime || [] = icon/emoji
-                        </span>
-                        <select id="convoType">
-                            <option>first</option>
-                            <option>last</option>
-                            <option>emoji</option>
-                            <option>link</option>
-                            <option>pic</option>
-                            <option>timedate</option>
-                        </select>
-                        <textarea type="text" id="convoInput"></textarea>
-                        <textarea id="convoInputAnother"></textarea>
-                        <button class="add me">Add Me</button>
-                        <button class="add them">Add Them</button>
-                        <button class="end">End Group</button>
-                        <button class="reset">Reset Convo</button>
-                        <pre>
-                            <code id="currentConvoCreated">
-                            </code>
-                            <code id="convoCreated">
-                            </code>
-                        </pre>
-                        <button id="copy">Copy</button>
-                        <button id="preview">Preview</button>
-                </div>
+             
             </div>
             <div id="rightBanner">
                 <div id="phone">
@@ -51,12 +24,12 @@
                                 <div id="batteryIndicator">o o o</div>
                             </div>
                             <div id="messageContact">
-                                <span><</span>
+                                <img src="files/icons/chevron-left.png" title="back"/>
                                 <div id="contact">
                                     <img src="files/thumbnail.png"/>
                                     <p>Brandon <span>></span></p>
                                 </div>
-                                <span>VC</span>
+                                <img src="files/icons/videocall.png" title="videocall"/>
                             </div>
                         </div>
                         <div id="convo" tabindex="-1">
@@ -74,8 +47,38 @@
                 </div>
             </div>
         </div>
-       
     </section>
+
+    <div class="modal" id="convoGenerator">
+        <div class="body">
+            Create a convo here:
+            <span>
+                ** = bold || == = dynamicTime || [] = icon/emoji
+            </span>
+            <select id="convoType">
+                <option>first</option>
+                <option>last</option>
+                <option>emoji</option>
+                <option>link</option>
+                <option>pic</option>
+                <option>timedate</option>
+            </select>
+            <textarea type="text" id="convoInput"></textarea>
+            <textarea id="convoInputAnother"></textarea>
+            <button class="add me">Add Me</button>
+            <button class="add them">Add Them</button>
+            <button class="end">End Group</button>
+            <button class="reset">Reset Convo</button>
+            <pre>
+                <code id="currentConvoCreated">
+                </code>
+                <code id="convoCreated">
+                </code>
+            </pre>
+            <button id="copy">Copy</button>
+            <button id="preview">Preview</button>
+        </div>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

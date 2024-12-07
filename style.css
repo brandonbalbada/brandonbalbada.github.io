@@ -10,6 +10,11 @@
 }
 @font-face {
   font-family: "SF Pro";
+  font-weight: 500;
+  src: url("../files/fonts/SFPRODISPLAYMEDIUM.OTF");
+}
+@font-face {
+  font-family: "SF Pro";
   font-weight: 600;
   src: url("../files/fonts/SFPRODISPLAYBOLD.OTF");
 }
@@ -77,7 +82,7 @@ section .row #phone {
   justify-content: center;
   border: 6px solid #ABA9A4;
   max-height: calc(100vh - 120px);
-  max-width: 90%;
+  max-width: 85%;
   border-radius: 85px;
   overflow: hidden;
 }
@@ -165,7 +170,14 @@ section .row #phone #screen #convo .messageGroup .message.pic img {
 }
 section .row #phone #screen #convo .messageGroup .message.emoji {
   padding: 0;
-  background-color: none;
+  background-color: unset;
+  flex-flow: row wrap;
+}
+section .row #phone #screen #convo .messageGroup .message.emoji img {
+  height: 48px;
+}
+section .row #phone #screen #convo .messageGroup .message.emoji span {
+  flex: 100% 0 0;
 }
 section .row #phone #screen #convo .messageGroup .message.link {
   transition: 100ms ease-in-out;
@@ -184,8 +196,17 @@ section .row #phone #screen #convo .messageGroup .message.link a img {
 section .row #phone #screen #convo .messageGroup .message.link:hover {
   filter: brightness(1.1);
 }
+section .row #phone #screen #convo .messageGroup .message .status {
+  font-weight: 500;
+  font-size: 0.9em;
+  color: #929AAB;
+  letter-spacing: 0.8px;
+}
 section .row #phone #screen #convo .messageGroup p {
   letter-spacing: 1px;
+}
+section .row #phone #screen #convo .messageGroup p .emoji {
+  height: 1em;
 }
 section .row #phone #screen #convo .messageGroup.warning {
   align-items: end;
@@ -209,9 +230,14 @@ section .row #phone #screen #convo .messageGroup.them {
 }
 section .row #phone #screen #convo .messageGroup.them .message {
   align-self: end;
+  display: flex;
+  justify-content: flex-end;
 }
 section .row #phone #screen #convo .messageGroup.them .message.first, section .row #phone #screen #convo .messageGroup.them .message.last, section .row #phone #screen #convo .messageGroup.them .message:not(.emoji) {
   background-color: #007AFF;
+}
+section .row #phone #screen #convo .messageGroup.them .message.emoji span {
+  text-align: right;
 }
 section .row #phone #screen #convo .messageGroup.them .message.timedate {
   background-color: unset;
@@ -228,17 +254,36 @@ section .row #phone #screen #convo .messageGroup.them .message p {
   color: #F7F7F7;
 }
 
-.convoGenerator pre {
+#convoGenerator {
+  display: none;
+}
+#convoGenerator pre {
   display: flex;
   white-space: break-spaces;
   flex-flow: column;
 }
-.convoGenerator pre code {
+#convoGenerator pre code {
   max-height: 150px;
   overflow-y: scroll;
 }
-.convoGenerator button {
+#convoGenerator button {
   align-self: flex-start;
+}
+
+div.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+}
+div.modal .body {
+  padding: 25px;
+  background-color: #F7F7F7;
+  flex-flow: column;
 }
 
 @media (prefers-color-scheme: dark) {
