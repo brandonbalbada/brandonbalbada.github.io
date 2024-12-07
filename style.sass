@@ -15,7 +15,7 @@ $me: $offwhite
 $warning: $red
 
 body::before
-    content: "darkmode"
+    // content: "darkmode"
 
 @font-face 
     font-family: "SF Pro"
@@ -104,6 +104,9 @@ section
 
             #convoSections
                 margin: 15px 0
+                display: flex
+                flex-flow: row wrap
+                gap: 5px 0
 
                 a    
                     padding: 7px 14px
@@ -374,7 +377,10 @@ div.modal
         padding: 25px
         background-color: $white
         flex-flow: column
-          
+
+
+                             
+                                                    
 @media only screen and (max-width: 1200px)
     body 
         overflow: scroll
@@ -383,9 +389,34 @@ div.modal
         max-height: unset
         
         & > div
+            padding: 30px 20px
             flex-flow: column nowrap    
-        
-        #phone              
-            min-width: 440px
 
-        
+        .row
+            #leftBanner
+                padding: 50px 20px            
+                flex: unset
+                align-items: center
+
+                p
+                    text-align: center
+
+            #rightBanner
+                #phone              
+                    min-width: 535px
+                    max-width: 60vw
+
+@media only screen and (max-width: 640px)
+    section
+        .row
+            #rightBanner
+                #phone              
+                    #screen
+                        #convo
+                            padding: 10px 20px 50px
+                        #header
+                            padding: 25px 20px 15px
+                            #floatingHeader
+                                #dynamicHeader
+                                    display: none
+           
