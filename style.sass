@@ -1,27 +1,21 @@
-$them: #007AFF
-$link: #4CD865
-$me: #EEEEEE
-$warning: #FF3C2F
+$blue: #007AFF
+$green: #4CD865
+$offwhite: #EEEEEE
+$red: #FF3C2F
+$lightbrown: #ABA9A4
 $grey: #929AAB
 $darkgrey: #333333
 $white: #F7F7F7
 $black: #000000
 $maxContentWidth: 1200px
 
-@media (prefers-color-scheme: dark) 
-    $them: #007AFF
-    $link: #4CD865
-    $me: #EEEEEE
-    $warning: #FF3C2F
-    $grey: #929AAB
-    $darkgrey: #333333
-    $white: #000000
-    $black: #f7f7f7
-    $maxContentWidth: 1200px
+$them: $blue
+$link: $green
+$me: $offwhite
+$warning: $red
 
-    body::before
-        content: "darkmode"
-        
+body::before
+    content: "darkmode"
 
 @font-face 
     font-family: "SF Pro"
@@ -66,6 +60,12 @@ body
     max-height: 100svh
     overflow: hidden
 
+h1
+    font-size: 3.43em
+    line-height: 1.25em
+    margin: 0
+    font-weight: 400
+
 p
     white-space: pre-line
     margin: 0
@@ -75,6 +75,8 @@ a:active,
 a:visited
     color: inherit
     text-decoration: none
+    &:hover
+        filter: brightness(1.1)
 
 section
     display: flex
@@ -90,237 +92,253 @@ section
 
         & > div 
             width: 100%
+            flex: 0 0 50%
 
         #leftBanner
             flex-flow: column nowrap
             justify-content: center
             > img
-                width: 50px
+                width: 100px
                 height: auto
                 object-fit: contain
 
-            .convoGenerator,
-            .convoCreated
-                flex-flow: column nowrap
-        #phone
-            justify-content: center             
-            border: 6px solid #ABA9A4
-            max-height: calc(100vh - 120px)
-            max-width: 85%
-            border-radius: 85px
-            overflow: hidden
+            #convoSections
+                margin: 15px 0
 
-            #screen                        
-                // min-width: 500px
-                flex-flow: column nowrap
+                a    
+                    padding: 7px 14px
+                    background-color: $blue
+                    color: $white
+                    font-weight: 300
+                    border-radius: 16px
+                    margin-right: 3px
+            p
+                font-size: 1.25em
+                font-weight: 300
+                max-width: 325px
+                margin-top: 5px
+                img
+                    height: 1em
+                &:last-child
+                    font-size: .85em
+        #rightBanner
+            justify-content: center
+            #phone
+                justify-content: center             
+                border: 6px solid $lightbrown
+                max-height: calc(100vh - 120px)
+                max-width: 85%
+                border-radius: 85px
                 overflow: hidden
-                border-radius: 80px
-                border: 10px solid $black
-                width: 100%
 
-                #header
-                    padding: 25px 40px 15px
-                    flex-flow: column
-                    box-shadow: 0px -1px 12px rgba(0,0,0,.1)
- 
-                    #floatingHeader
-                        @include div-center-spacebetween
-                        width: 100%
-                        font-weight: 600
+                #screen             
+                    flex-flow: column nowrap
+                    overflow: hidden
+                    border-radius: 80px
+                    border: 10px solid $black
+                    width: 100%
 
-                        #headerTime, 
-                        #batteryIndicator 
-                            width: 85px
-                            color: $darkgrey
+                    #header
+                        padding: 25px 40px 15px
+                        flex-flow: column
+                        box-shadow: 0px -1px 12px rgba(0,0,0,.1)
+    
+                        #floatingHeader
+                            @include div-center-spacebetween
+                            width: 100%
+                            font-weight: 600
 
-                        #batteryIndicator 
-                            width: 85px
-                            display: flex
-                            align-items: center
-                            img
-                                height: 16px
-                                &:not(:last-child)
-                                    margin-right: 5px
-                                &#battery
-                                    height: unset
-                                    width: 30px
+                            #headerTime, 
+                            #batteryIndicator 
+                                width: 85px
+                                color: $darkgrey
 
-                        #headerTime
-                            font-size: 1em
-                            line-height: 1em                    
-
-                        #dynamicHeader
-                            height: 40px
-                            width: 150px
-                            background-color: $black
-                            border-radius: 30px
-                        
-                        #batteryIndicator
-                            justify-content: end
-
-                    #messageContact 
-                        @include div-center-spacebetween
-                        padding: 25px 0 0 0
-
-                        #contact
-                            flex-flow: column nowrap
-                            align-items: center
-
-                            & > img
-                                border-radius: 50%
-                            
-                            p
+                            #batteryIndicator 
+                                width: 85px
                                 display: flex
                                 align-items: center
-                                font-size: 1em
-                                margin-top: 5px
-                                letter-spacing: .5px
                                 img
-                                    height: 0.75em
-                                    margin-left: 5px
-                    
-                #convo   
-                    overflow-y: scroll
-                    padding: 10px 35px 50px
-                    display: grid
-                    grid-auto-flow: row    
-                    noscript
-                        display: flex
-                        justify-content: right
-                        width: fit-content
+                                    height: 16px
+                                    &:not(:last-child)
+                                        margin-right: 5px
+                                    &#battery
+                                        height: unset
+                                        width: 30px
 
-                    .messageGroup
-                        display: flex
-                        flex-flow: column wrap
-                        margin-bottom: 15px 
-                        font-weight: 300
+                            #headerTime
+                                font-size: 1em
+                                line-height: 1em                    
 
-                        &:last-child
-                            margin-bottom: 0
-                        
-                        &.warning
-                            flex-flow: row wrap
-                            .message
-                                flex-basis: 93%
-                            img
-                                flex-basis: 7%
-                                object-fit: contain
-                                width: 7%
-                                margin-left: 10px
-                            .status
-                                color: $warning
-                                flex-basis: 100%
-                                font-weight: 600
-                                width: fit-content
-                                text-align: right
-                        
-                        .message      
-                            margin-bottom: 5px  
-                            max-width: 82% 
-                            padding: 10px 15px
+                            #dynamicHeader
+                                height: 40px
+                                width: 150px
+                                background-color: $black
+                                border-radius: 30px
+
+                            #batteryIndicator
+                                justify-content: end
+
+                        #messageContact 
+                            @include div-center-spacebetween
+                            padding: 25px 0 0 0
+
+                            #contact
+                                flex-flow: column nowrap
+                                align-items: center
+
+                                & > img
+                                    border-radius: 50%
+
+                                p
+                                    display: flex
+                                    align-items: center
+                                    font-size: 1em
+                                    margin-top: 5px
+                                    letter-spacing: .5px
+                                    img
+                                        height: 0.75em
+                                        margin-left: 5px
+
+                    #convo   
+                        overflow-y: scroll
+                        padding: 10px 35px 50px
+                        display: grid
+                        grid-auto-flow: row    
+                        noscript
+                            display: flex
+                            justify-content: right
                             width: fit-content
-                            border-radius: 22px
-                            color: $darkgrey
-                            position: relative
 
-                            &.last::before 
-                                content: ""
-                                height: 25px
-                                width: 25px
-                                background-color: inherit
-                                clip-path: polygon( 1.533% 100%,1.533% 100%,2.961% 99.915%,7.047% 99.631%,13.497% 99.1%,22.014% 98.277%,32.304% 97.115%,44.071% 95.569%,57.019% 93.592%,70.854% 91.138%,85.279% 88.162%,100% 84.615%,100% 84.615%,110.864% 77.754%,114.802% 66.108%,113.146% 51.546%,107.227% 35.939%,98.377% 21.154%,87.926% 9.062%,77.207% 1.531%,67.551% 0.431%,60.288% 7.631%,56.751% 25%,56.751% 25%,57.199% 30.579%,56.129% 37.785%,53.612% 46.167%,49.721% 55.277%,44.528% 64.663%,38.103% 73.877%,30.52% 82.467%,21.849% 89.985%,12.163% 95.979%,1.533% 100% )
-                                background-size: contain
-                                position: absolute
-                                z-index: -1
+                        .messageGroup
+                            display: flex
+                            flex-flow: column wrap
+                            margin-bottom: 15px 
+                            font-weight: 300
 
                             &:last-child
                                 margin-bottom: 0
 
-                            // Types
-                            &.pic 
-                                padding: 2px 
-                                img
-                                    width: 100%
-                                    border-radius: 19px
-                            
-                            &.emoji
-                                padding: 0
-                                background-color: unset
+                            &.warning
                                 flex-flow: row wrap
+                                .message
+                                    flex-basis: 93%
                                 img
-                                    height: 48px
+                                    flex-basis: 7%
+                                    object-fit: contain
+                                    width: 7%
+                                    margin-left: 10px
+                                .status
+                                    color: $warning
+                                    flex-basis: 100%
+                                    font-weight: 600
+                                    width: fit-content
+                                    text-align: right
 
-                                span
-                                    flex: 100% 0 0
-                            
-                            &.link
-                                transition: 100ms ease-in-out
-                                background-color: $link
-                                padding: 0
-                                a                        
-                                    font-weight: 600    
-                                    padding: 10px 15px
+                            .message      
+                                margin-bottom: 5px  
+                                max-width: 82% 
+                                padding: 10px 15px
+                                width: fit-content
+                                border-radius: 22px
+                                color: $darkgrey
+                                position: relative
+
+                                &.last::before 
+                                    content: ""
+                                    height: 25px
+                                    width: 25px
+                                    background-color: inherit
+                                    clip-path: polygon( 79.612% 4.651%,1.942% 100%,1.942% 100%,12.897% 101.402%,22.012% 100.335%,29.483% 97.258%,35.511% 92.633%,40.291% 86.919%,44.023% 80.577%,46.905% 74.067%,49.134% 67.851%,50.909% 62.388%,52.427% 58.14%,52.427% 58.14%,54.205% 66.658%,57.561% 74.102%,62.152% 80.514%,67.635% 85.935%,73.665% 90.407%,79.899% 93.972%,85.993% 96.672%,91.604% 98.549%,96.387% 99.644%,100% 100%,100% 100%,95.663% 93.515%,91.946% 86.467%,88.807% 79.045%,86.206% 71.438%,84.102% 63.837%,82.454% 56.432%,81.222% 49.411%,80.365% 42.966%,79.842% 37.285%,79.612% 32.558%,79.612% 4.651% )
+                                    background-size: contain
+                                    position: absolute
+                                    z-index: -1
+
+                                &:last-child
+                                    margin-bottom: 0
+
+                                // Types
+                                &.pic 
+                                    padding: 2px 
                                     img
-                                        height: 12px
-                                        width: auto
-                                        margin-right: 5px
-                                &:hover
-                                    filter: brightness(1.1)
-                            
-                            .status
-                                font-weight: 500
-                                font-size: 0.9em
-                                color: #929AAB
-                                letter-spacing: 0.8px
-                        p
-                            letter-spacing: 1px 
-                            .emoji
-                                height: 1em
-                        &.me         
-                            .message
-                                &.last::before 
-                                    left: -14px
-                                    bottom: 0px
+                                        width: 100%
+                                        border-radius: 19px
 
-                            .message:not(.emoji):not(.link)               
-                                background-color: $me
-                            
-                            
-                        &.them
-                            justify-content: end
-                                
-                            .message
-                                align-self: end
-                                display: flex   
-                                justify-content: flex-end
-                                
-                                &.last::before 
-                                    right: -14px
-                                    bottom: 0
-                                    transform: scaleX(-1)
-
-                                &.first,
-                                &.last,
-                                &:not(.emoji)
-                                    background-color: $them
                                 &.emoji
-                                    span
-                                        text-align: right
-                                &.timedate    
+                                    padding: 0
                                     background-color: unset
-                                    width: 100%
-                                    max-width: 100%
-                                    justify-self: unset
-                                    flex-flow: column nowrap
-                                    align-items: center
-                                    color: $grey 
-                                    letter-spacing: .5px
-
+                                    flex-flow: row wrap
                                     img
-                                        height: 1em
-                                p
-                                    font-weight: 300
-                                    color: $white  
+                                        height: 48px
+
+                                    span
+                                        flex: 100% 0 0
+
+                                &.link
+                                    transition: 100ms ease-in-out
+                                    background-color: $link
+                                    padding: 0
+                                    a                        
+                                        font-weight: 600    
+                                        padding: 10px 15px
+                                        img
+                                            height: 12px
+                                            width: auto
+                                            margin-right: 5px
+
+                                .status
+                                    font-weight: 500
+                                    font-size: 0.9em
+                                    color: #929AAB
+                                    letter-spacing: 0.8px
+                            p
+                                letter-spacing: 1px 
+                                .emoji
+                                    height: 1em
+                            &.me         
+                                .message
+                                    &.last::before 
+                                        left: -4px
+                                        bottom: 1px
+                                        transform: scaleX(-1)
+
+                                .message:not(.emoji):not(.link)               
+                                    background-color: $me
+
+
+                            &.them
+                                justify-content: end
+
+                                .message
+                                    align-self: end
+                                    display: flex   
+                                    justify-content: flex-end
+
+                                    &.last::before 
+                                        right: -5px
+                                        bottom: 1px
+
+                                    &.first,
+                                    &.last,
+                                    &:not(.emoji)
+                                        background-color: $them
+                                    &.emoji
+                                        span
+                                            text-align: right
+                                    &.timedate    
+                                        background-color: unset
+                                        width: 100%
+                                        max-width: 100%
+                                        justify-self: unset
+                                        flex-flow: column nowrap
+                                        align-items: center
+                                        color: $grey 
+                                        letter-spacing: .5px
+
+                                        img
+                                            height: 1em
+                                    p
+                                        font-weight: 300
+                                        color: $white  
 
 
 #convoGenerator
@@ -333,8 +351,14 @@ section
         code
             max-height: 150px
             overflow-y: scroll
+    
     button
         align-self: flex-start
+
+    .convoGenerator,
+    .convoCreated
+        flex-flow: column nowrap
+
 
 div.modal 
     position: absolute
@@ -351,5 +375,17 @@ div.modal
         background-color: $white
         flex-flow: column
           
+@media only screen and (max-width: 1200px)
+    body 
+        overflow: scroll
+    section
+        min-height: unset
+        max-height: unset
+        
+        & > div
+            flex-flow: column nowrap    
+        
+        #phone              
+            min-width: 440px
 
-                   
+        

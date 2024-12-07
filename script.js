@@ -102,14 +102,6 @@ const createHTMLElement = (sender,message) => {
                 }
             break;
             case "link":
-                // let iconImageFilter = currentMessage.m.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
-                // if (iconImageFilter){
-                //      for (const word in iconImageFilter){
-                //          let updatedWord = `<img src="${iconImageFilter[word].replaceAll("#","")}"/>`;
-                //          currentMessage.m = currentMessage.m.replaceAll(iconImageFilter[word],updatedWord);
-                //          messageTagAndContents.push(["a",currentMessage.m]);
-                //      }
-                // }
                 messageTagAndContents.push(["a",updateText(currentMessage.m)]);
             break;
             case "pic":
@@ -156,7 +148,8 @@ const createHTMLElement = (sender,message) => {
 
         currentMessage.type !== "emoji" && messageInsideElement.setAttribute("tabindex","1");
         messageElement.appendChild(messageInsideElement);
-        currentMessage.title !== undefined && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").replaceAll(" ","_").toLowerCase());
+
+        currentMessage.title !== undefined && currentMessage.title !== "" && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").replaceAll(" ","_").toLowerCase());
     }
     body.appendChild(messageElement);
     // create a condition inside first and last for emojis
