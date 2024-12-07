@@ -397,6 +397,7 @@ div.modal .body {
 @media only screen and (max-width: 1200px) {
   body {
     overflow: scroll;
+    font-size: 12px;
   }
   h1 {
     font-size: 2.5em;
@@ -453,5 +454,10 @@ div.modal .body {
   }
   section .row #rightBanner #phone #screen #header #floatingHeader #dynamicHeader {
     display: none;
+  }
+}
+@media only screen and (max-width: 345px) {
+  section .row #rightBanner #phone #screen #convo .messageGroup .message {
+    max-width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

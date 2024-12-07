@@ -376,14 +376,12 @@ div.modal
     .body
         padding: 25px
         background-color: $white
-        flex-flow: column
-
-
-                             
+        flex-flow: column                     
                                                     
 @media only screen and (max-width: 1200px)
     body 
         overflow: scroll
+        font-size: 12px
     h1
         font-size: 2.5em
         line-height: 1em
@@ -438,4 +436,14 @@ div.modal
                             #floatingHeader
                                 #dynamicHeader
                                     display: none
-           
+
+@media only screen and (max-width: 345px)
+    section
+        .row
+            #rightBanner
+                #phone    
+                    #screen
+                        #convo
+                            .messageGroup
+                                .message
+                                    max-width: 100%
