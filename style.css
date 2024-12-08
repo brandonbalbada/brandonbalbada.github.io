@@ -126,7 +126,8 @@ section .row #rightBanner #phone {
   justify-content: center;
   border: 6px solid #ABA9A4;
   max-height: calc(100vh - 120px);
-  max-width: 85%;
+  max-width: clamp(450px, 85%, 85%);
+  min-width: 450px;
   border-radius: 85px;
   overflow: hidden;
 }
@@ -272,10 +273,29 @@ section .row #rightBanner #phone #screen #convo .messageGroup .message:last-chil
 }
 section .row #rightBanner #phone #screen #convo .messageGroup .message.pic {
   padding: 2px;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #F7F7F7;
+}
+section .row #rightBanner #phone #screen #convo .messageGroup .message.pic.link {
+  background-color: #4CD865;
 }
 section .row #rightBanner #phone #screen #convo .messageGroup .message.pic img {
   width: 100%;
-  border-radius: 19px;
+  border-radius: 18px;
+}
+section .row #rightBanner #phone #screen #convo .messageGroup .message.pic a {
+  position: relative;
+}
+section .row #rightBanner #phone #screen #convo .messageGroup .message.pic a span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 5px 10px;
+  background-color: #4CD865;
+  width: 100%;
+  font-weight: 400;
 }
 section .row #rightBanner #phone #screen #convo .messageGroup .message.emoji {
   padding: 0;
@@ -288,16 +308,17 @@ section .row #rightBanner #phone #screen #convo .messageGroup .message.emoji img
 section .row #rightBanner #phone #screen #convo .messageGroup .message.emoji span {
   flex: 100% 0 0;
 }
-section .row #rightBanner #phone #screen #convo .messageGroup .message.link {
+section .row #rightBanner #phone #screen #convo .messageGroup .message.link:not(.pic) {
   transition: 100ms ease-in-out;
   background-color: #4CD865;
   padding: 0;
+  color: #F7F7F7;
 }
-section .row #rightBanner #phone #screen #convo .messageGroup .message.link a {
-  font-weight: 600;
+section .row #rightBanner #phone #screen #convo .messageGroup .message.link:not(.pic) a {
+  font-weight: 400;
   padding: 10px 15px;
 }
-section .row #rightBanner #phone #screen #convo .messageGroup .message.link a img {
+section .row #rightBanner #phone #screen #convo .messageGroup .message.link:not(.pic) a img {
   height: 12px;
   width: auto;
   margin-right: 5px;
@@ -308,10 +329,10 @@ section .row #rightBanner #phone #screen #convo .messageGroup .message .status {
   color: #929AAB;
   letter-spacing: 0.8px;
 }
-section .row #rightBanner #phone #screen #convo .messageGroup p {
+section .row #rightBanner #phone #screen #convo .messageGroup p, section .row #rightBanner #phone #screen #convo .messageGroup a {
   letter-spacing: 1px;
 }
-section .row #rightBanner #phone #screen #convo .messageGroup p .emoji {
+section .row #rightBanner #phone #screen #convo .messageGroup p .emoji, section .row #rightBanner #phone #screen #convo .messageGroup a .emoji {
   height: 1em;
 }
 section .row #rightBanner #phone #screen #convo .messageGroup.me .message.last::before {
@@ -423,8 +444,10 @@ div.modal .body {
     text-align: center;
   }
   section .row #rightBanner #phone {
-    min-width: 640px;
-    max-width: 60vw;
+    max-width: 35vw;
+  }
+  section .row #rightBanner #phone #screen #header #floatingHeader #dynamicHeader {
+    width: unset;
   }
 }
 @media only screen and (max-width: 640px) {
@@ -441,7 +464,7 @@ div.modal .body {
   }
   section .row #rightBanner #phone {
     min-width: unset;
-    max-width: unset;
+    max-width: 90vw;
   }
   section .row #rightBanner #phone #screen #convo {
     padding: 10px 20px 50px;

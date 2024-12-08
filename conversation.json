@@ -108,7 +108,7 @@
       "type": "last"
     },
     "1": {
-      "m": "files/icons/amazed.png",
+      "m": "[amazed]",
       "type": "emoji"
     }
   },
@@ -161,11 +161,27 @@
       "type": "first"
     },
     "3": {
-      "m": "files/GoCrayons.jpg",
+      "m": "[GoCrayons]",
       "type": "pic"
     },
     "4": {
-      "m": "files/icons/flex.png",
+      "m": "This is some of my old works:",
+      "type": "first"
+    },
+    "5": {
+      "m": "[marineviewscottesloe]",
+      "linkTitle": "Marine Views Cottesloe",
+      "link": "https://marineviewscottesloe.com.au",
+      "type": "pic"
+    },
+    "6": {
+      "m": "[themaker]",
+      "linkTitle": "The Maker",
+      "link": "https://themaker.com.au",
+      "type": "pic"
+    },
+    "7": {
+      "m": "[flex]",
       "type": "emoji"
     }
   },

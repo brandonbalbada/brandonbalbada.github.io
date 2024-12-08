@@ -42,7 +42,7 @@ const updateText = (text, type = "") => {
             filterText = filterText.replaceAll(emojiFilter[word],updatedWord);
         }
    }
-   
+
    let timeFilter = text.match(/\=(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})\=/g);
    if (timeFilter){ 
         for (const word in timeFilter){
@@ -61,9 +61,6 @@ const updateText = (text, type = "") => {
 
     let iconImageFilter = filterText.match(/#(?=[\w\-\.\(\)#]{0,})([\w\s/\-\.\(\)#]{0,})#/g);
     if (iconImageFilter){
-        
-        console.log(text);
-        console.log(iconImageFilter);
          for (const word in iconImageFilter){
              let updatedWord = `<img src="${iconImageFilter[word].replaceAll("#","")}"/>`;
              filterText = filterText.replaceAll(iconImageFilter[word],updatedWord);
@@ -102,6 +99,7 @@ const createHTMLElement = (sender,message) => {
                 }
             break;
             case "link":
+                // currentMessage["pic"] !== undefined && messageTagAndContents.push(["img",currentMessage["pic"]]);  
                 messageTagAndContents.push(["a",updateText(currentMessage.m)]);
             break;
             case "pic":
@@ -119,8 +117,6 @@ const createHTMLElement = (sender,message) => {
             break;
         }
 
-
-
         for (let message in messageTagAndContents){
             let messageTag = messageTagAndContents[message][0];
             let messageContents = messageTagAndContents[message][1];
@@ -129,12 +125,31 @@ const createHTMLElement = (sender,message) => {
             if (currentMessage.type == "pic" || currentMessage.type == "emoji"){
                 messageDetails.setAttribute("src",messageContents);
                 messageDetails.classList.add(currentMessage.type);
+
+                if (currentMessage.link){
+                    let newElementPic = document.createElement("a");
+                    newElementPic.setAttribute("href",currentMessage.link);
+                    newElementPic.setAttribute("target","_blank");        
+                    newElementPic.appendChild(messageDetails);
+
+                    if (currentMessage.linkTitle){            
+                        let newElementText = document.createElement("span");
+                        newElementText.classList.add("label");
+                        newElementText.innerHTML = currentMessage.linkTitle;
+                        newElementPic.appendChild(newElementText);
+                    }
+                    
+                    messageDetails = newElementPic;
+
+
+                }
             } else {
                 if (currentMessage.type == "link"){
                     messageDetails.setAttribute("href",currentMessage.link);
-                    messageDetails.setAttribute("target","_blank");
+                    messageDetails.setAttribute("target","_blank");               
                 }
-                messageDetails.innerHTML = messageContents;     
+                
+                messageDetails.innerHTML += messageContents;     
             }
             messageInsideElement.appendChild(messageDetails);
         }
@@ -147,10 +162,17 @@ const createHTMLElement = (sender,message) => {
         }
 
         currentMessage.type !== "emoji" && messageInsideElement.setAttribute("tabindex","1");
-        messageElement.appendChild(messageInsideElement);
+        
+        currentMessage.title && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").replaceAll(" ","_").toLowerCase());
+        
+        if (currentMessage.type == "pic" && currentMessage.link){        
+            messageInsideElement.classList.add("link");
+        }
 
-        currentMessage.title !== undefined && currentMessage.title !== "" && messageElement.setAttribute("id",currentMessage.title.replaceAll(/<((\/[A-Za-z])|([A-Za-z]))*>/g,"").replaceAll(" ","_").toLowerCase());
-    }
+        messageElement.appendChild(messageInsideElement);
+ 
+    } 
+
     body.appendChild(messageElement);
     // create a condition inside first and last for emojis
 }
@@ -165,7 +187,8 @@ const putHTMLElements = (conversation) => {
             const message = convo[messageBlock];
             for (let messageLines in message){
                 if (messageLines != "type" && messageLines != "link"){
-                    message[messageLines] = updateText(message[messageLines],message["type"]);
+                    let FilterType = message["pic"] !== undefined && messageLines == "pic" ? "pic" : message["type"];
+                    message[messageLines] = updateText(message[messageLines],FilterType);
                 } 
             }
             messageContents.push(message);
@@ -288,3 +311,18 @@ const updateSignalSrc = () => {
 }
 
 updateSignalSrc();
+
+const editButton = document.getElementById("videocall");
+const editModal = document.getElementById("convoGenerator");
+
+const openEdit = () => {
+    editModal.style.display = editModal.style.display == "none" ? "flex" : "none";
+}
+
+const closeEdit = (e) => {
+    console.log(e);
+    e.target.classList.contains("modal") && (e.target.style.display = "none");
+}
+
+editButton.addEventListener("dblclick",openEdit);
+editModal.addEventListener("click",closeEdit);

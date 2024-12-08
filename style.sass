@@ -75,6 +75,7 @@ a:active,
 a:visited
     color: inherit
     text-decoration: none
+    
     &:hover
         filter: brightness(1.1)
 
@@ -130,10 +131,11 @@ section
                 justify-content: center             
                 border: 6px solid $lightbrown
                 max-height: calc(100vh - 120px)
-                max-width: 85%
+                max-width: clamp(450px, 85%, 85%)
+                min-width: 450px
                 border-radius: 85px
-                overflow: hidden
-
+                overflow: hidden                
+                
                 #screen             
                     flex-flow: column nowrap
                     overflow: hidden
@@ -262,10 +264,25 @@ section
                                 // Types
                                 &.pic 
                                     padding: 2px 
+                                    border-radius: 18px
+                                    overflow: hidden  
+                                    color: $white
+                                    &.link                                        
+                                        background-color: $green
                                     img
-                                        width: 100%
-                                        border-radius: 19px
-
+                                        width: 100%                                    
+                                        border-radius: 18px
+                                    a
+                                        position: relative
+                                        span
+                                            position: absolute
+                                            left: 0
+                                            bottom: 0
+                                            z-index: 1
+                                            padding: 5px 10px
+                                            background-color: $green
+                                            width: 100%
+                                            font-weight: 400
                                 &.emoji
                                     padding: 0
                                     background-color: unset
@@ -276,12 +293,17 @@ section
                                     span
                                         flex: 100% 0 0
 
-                                &.link
+                                &.link:not(.pic)
                                     transition: 100ms ease-in-out
                                     background-color: $link
                                     padding: 0
+                                    color: $white
+                                    
+                                    // &:hover
+                                    //     filter: brightness(1.1)
+                                
                                     a                        
-                                        font-weight: 600    
+                                        font-weight: 400    
                                         padding: 10px 15px
                                         img
                                             height: 12px
@@ -293,7 +315,7 @@ section
                                     font-size: 0.9em
                                     color: #929AAB
                                     letter-spacing: 0.8px
-                            p
+                            p, a
                                 letter-spacing: 1px 
                                 .emoji
                                     height: 1em
@@ -407,8 +429,13 @@ div.modal
 
             #rightBanner
                 #phone              
-                    min-width: 640px
-                    max-width: 60vw
+                    max-width: 35vw
+                    #screen
+                        #header
+                            #floatingHeader
+                                #dynamicHeader
+                                    width: unset
+
 
 @media only screen and (max-width: 640px)
     h1
@@ -424,7 +451,7 @@ div.modal
             #rightBanner
                 #phone    
                     min-width: unset
-                    max-width: unset
+                    max-width: 90vw
                     #screen
                         #convo
                             padding: 10px 20px 50px
