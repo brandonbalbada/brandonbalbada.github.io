@@ -1,5 +1,6 @@
 $blue: #007AFF
 $green: #4CD865
+$darkerGreen: #37a04a
 $offwhite: #EEEEEE
 $red: #FF3C2F
 $lightbrown: #ABA9A4
@@ -75,9 +76,6 @@ a:active,
 a:visited
     color: inherit
     text-decoration: none
-    
-    &:hover
-        filter: brightness(1.1)
 
 section
     display: flex
@@ -219,6 +217,7 @@ section
                             flex-flow: column wrap
                             margin-bottom: 15px 
                             font-weight: 300
+                            position: relative
 
                             &:last-child
                                 margin-bottom: 0
@@ -247,6 +246,7 @@ section
                                 border-radius: 22px
                                 color: $darkgrey
                                 position: relative
+                                transition: 300ms ease-in-out
 
                                 &.last::before 
                                     content: ""
@@ -264,17 +264,19 @@ section
                                 // Types
                                 &.pic 
                                     padding: 2px 
-                                    border-radius: 18px
+                                    border-radius: 19px
                                     overflow: hidden  
                                     color: $white
                                     &.link                                        
                                         background-color: $green
+
                                     img
                                         width: 100%                                    
-                                        border-radius: 18px
+                                        border-radius: 19px
                                     a
                                         position: relative
                                         span
+                                            transition: 300ms ease-in-out
                                             position: absolute
                                             left: 0
                                             bottom: 0
@@ -283,6 +285,12 @@ section
                                             background-color: $green
                                             width: 100%
                                             font-weight: 400
+                                            display: flex
+                                            align-items: center
+                                            img
+                                                object-fit: contain
+                                                margin-right: 5px
+                                                width: fit-content
                                 &.emoji
                                     padding: 0
                                     background-color: unset
@@ -294,14 +302,10 @@ section
                                         flex: 100% 0 0
 
                                 &.link:not(.pic)
-                                    transition: 100ms ease-in-out
                                     background-color: $link
                                     padding: 0
                                     color: $white
-                                    
-                                    // &:hover
-                                    //     filter: brightness(1.1)
-                                
+                                                                  
                                     a                        
                                         font-weight: 400    
                                         padding: 10px 15px
@@ -309,6 +313,11 @@ section
                                             height: 12px
                                             width: auto
                                             margin-right: 5px
+
+                                &.link:hover
+                                    background-color: $darkerGreen
+                                    & span                                        
+                                        background-color: $darkerGreen
 
                                 .status
                                     font-weight: 500

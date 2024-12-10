@@ -51,11 +51,11 @@ const updateText = (text, type = "") => {
         }
    }
 
-    let emojiFilter2 = filterText.match(/#([A-Za-z.\/]+)#/g);
-    if (emojiFilter2){
-         for (const word in emojiFilter2){
-             let updatedWord = `<img class="emoji" src="${emojiFilter2[word].replaceAll("#","")}"/>`;
-             filterText = filterText.replaceAll(emojiFilter2[word],updatedWord);
+    let emojiInsideTextFilter = filterText.match(/#([A-Za-z.\/]+)#/g);
+    if (emojiInsideTextFilter){
+         for (const word in emojiInsideTextFilter){
+             let updatedWord = `<img class="emoji" src="${emojiInsideTextFilter[word].replaceAll("#","")}"/>`;
+             filterText = filterText.replaceAll(emojiInsideTextFilter[word],updatedWord);
          }
     }
 
@@ -187,8 +187,15 @@ const putHTMLElements = (conversation) => {
             const message = convo[messageBlock];
             for (let messageLines in message){
                 if (messageLines != "type" && messageLines != "link"){
-                    let FilterType = message["pic"] !== undefined && messageLines == "pic" ? "pic" : message["type"];
-                    message[messageLines] = updateText(message[messageLines],FilterType);
+                    let filterType;
+
+                    if (messageLines == "linkTitle") {
+                        filterType = messageLines;
+                    } else {                    
+                        filterType = message["pic"] && messageLines == "pic" ? "pic" : message["type"];
+                    }
+                    
+                    message[messageLines] = updateText(message[messageLines],filterType);
                 } 
             }
             messageContents.push(message);
