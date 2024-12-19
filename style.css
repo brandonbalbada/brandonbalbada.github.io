@@ -303,6 +303,7 @@ section .row #rightBanner #phone #screen #convo .messageGroup .message.pic a spa
   margin-right: 5px;
   width: -moz-fit-content;
   width: fit-content;
+  border-radius: 0;
 }
 section .row #rightBanner #phone #screen #convo .messageGroup .message.emoji {
   padding: 0;
